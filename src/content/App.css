@@ -1,0 +1,867 @@
+/* ============================================================
+   poe-simple-trade  content script layout
+   - .pst-layout  : 320px 고정 패널 (position: fixed, 항상 full height)
+   - body         : margin-left 320px 로 밀려나는 나머지 영역
+   ============================================================ */
+
+:root {
+    --pst-sidebar-width: 320px;
+
+    /* sleek dark palette */
+    --pst-bg: #121212;
+    --pst-bg-folder: #202020;
+    --pst-bg-elev: #2a2a2a;
+    --pst-bg-hover: #444444;
+    --pst-border: #4a4a4a;
+    --pst-text: #eceef2;
+    --pst-text-dim: #a8adb8;
+    --pst-accent: #d4b572;
+    --pst-accent-soft: rgba(212, 181, 114, 0.24);
+    --pst-bg-warning: rgba(236, 11, 11, 0.24);
+}
+
+/* ---------- 2nd area : 원래 페이지를 오른쪽으로 밀어냄 ---------- */
+body.pst-page-shift {
+    /* width: calc(100% - 320px); */
+    padding-left: 320px !important;
+    padding-right: 0 !important;
+    transition: width 0.3s ease;
+}
+
+/* .pst-page-shift 의 !important 를 이기려면 클래스 2개로 특정도를 높여야 한다 */
+body.pst-page-shift.pst-page-shift-right {
+    padding-left: 0 !important;
+    padding-right: 320px !important;
+}
+
+/* ---------- 1st area container ---------- */
+
+.pst-layout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--pst-sidebar-width);
+    height: 100vh;
+    z-index: 2147483000;
+
+    display: flex;
+    align-items: stretch;
+
+    font-family:
+        "Malgun Gothic",
+        "맑은 고딕",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--pst-text);
+    box-sizing: border-box;
+
+    /* 접기/펴기 애니메이션 */
+    transition: transform 0.25s ease;
+}
+
+.pst-layout *,
+.pst-layout *::before,
+.pst-layout *::after {
+    box-sizing: border-box;
+}
+
+/* ---------- 1st area : sidebar ---------- */
+
+.pst-sidebar {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* 내부 스크롤 영역이 넘치지 않도록 */
+
+    background: var(--pst-bg);
+    border-right: 1px solid var(--pst-border);
+    box-shadow:
+        1px 0 0 rgba(255, 255, 255, 0.02),
+        8px 0 24px rgba(0, 0, 0, 0.35);
+}
+
+/* tabs */
+
+.pst-tabs {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 0px;
+    padding: 0;
+    border-bottom: 1px solid var(--pst-border);
+    background: rgba(255, 255, 255, 0.015);
+}
+
+.pst-tab {
+    flex: 1 1 0;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--pst-text-dim);
+
+    padding: 6px 12px;
+
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+
+    position: relative;
+    transition:
+        color 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.pst-tab:hover {
+    color: var(--pst-text);
+    background: var(--pst-bg-hover);
+}
+
+.pst-tab:focus-visible {
+    outline: 2px solid var(--pst-accent);
+    outline-offset: -2px;
+}
+
+.pst-tab.is-active {
+    color: var(--pst-text);
+    background: var(--pst-accent-soft);
+}
+
+.pst-tab.is-active::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: -1px;
+    height: 1px;
+    background: var(--pst-accent);
+}
+
+/* panel : body(스크롤) + footer(하단 고정) */
+
+.pst-panel {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.pst-panel-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 12px 8px 8px 8px;
+}
+
+.pst-panel-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.pst-panel-body::-webkit-scrollbar-thumb {
+    background: #4f4f4f;
+}
+
+.pst-panel-body::-webkit-scrollbar-thumb:hover {
+    background: #5c5c5c;
+}
+
+.pst-panel-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.pst-empty {
+    margin: 24px 0 0;
+    text-align: center;
+    color: var(--pst-text-dim);
+    font-size: 12px;
+}
+
+.pst-folder-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    /* 폴더 사이 간격은 gap 대신 .pst-folder 의 padding 으로 준다.
+       gap 은 어느 폴더에도 속하지 않아 드래그 사각지대가 된다. */
+    gap: 0;
+}
+
+.pst-folder {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px;
+    /* 순서 변경 표시선(::before/::after)의 기준 */
+    position: relative;
+}
+
+.pst-folder-item {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 4px 6px;
+    color: var(--pst-text);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    background: var(--pst-bg-folder);
+    border: 1px solid var(--pst-border);
+    border-radius: 2px;
+}
+
+.pst-folder-item:hover {
+    background: var(--pst-bg-hover);
+}
+
+.pst-folder-item:focus-visible {
+    outline: 2px solid var(--pst-accent);
+    outline-offset: -2px;
+}
+
+.pst-folder-icon {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 12px;
+    font-size: 10px;
+    line-height: 1;
+    color: var(--pst-accent);
+    transition: transform 0.15s ease;
+}
+
+.pst-folder-icon.is-expanded {
+    transform: rotate(90deg);
+    margin-top: 2px;
+}
+
+.pst-folder-name {
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 4px;
+}
+
+.pst-btn-bookmark {
+    flex: 0 0 auto;
+    appearance: none;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--pst-text);
+    font: inherit;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition:
+        opacity 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease;
+}
+.pst-btn-bookmark:hover {
+    border: 1px solid var(--pst-text-dim);
+    background-color: var(--pst-accent-soft);
+}
+
+.pst-btn-delete {
+    font-size: 12px;
+}
+.pst-btn-delete:hover {
+    border: 1px solid var(--pst-text-dim);
+    background-color: var(--pst-bg-warning);
+}
+
+/* 폴더 하위 북마크 목록 */
+
+.pst-bookmark-list {
+    /* 위쪽 폴더 행과 테두리를 한 줄로 공유 */
+    margin: -1px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* 북마크 행끼리 테두리를 한 줄로 공유 */
+.pst-bookmark-list > li + li {
+    margin-top: -1px;
+}
+
+.pst-bookmark-item {
+    padding: 3px 6px;
+    border: 1px solid var(--pst-border);
+    border-radius: 2px;
+    color: var(--pst-text);
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+    display: flex;
+}
+
+.pst-bookmark-item:hover {
+    background: var(--pst-bg-hover);
+    color: var(--pst-text);
+}
+
+.pst-bookmark-empty {
+    padding: 3px 6px;
+    border: 1px solid var(--pst-border);
+    border-radius: 2px;
+    color: var(--pst-text-dim);
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* 클릭 대상이므로 글자 폭만 차지한다. flex-grow 를 주면 오른쪽 빈 자리까지 클릭된다 */
+/* 정렬용 드래그 핸들. dnd-kit 이 여기에만 pointerdown 을 걸어 드래그가 시작된다 */
+.pst-drag-handle {
+    flex: 0 0 auto;
+    align-self: stretch;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+
+    /* 살짝 왼쪽으로 당기고 그만큼 오른쪽에 여백을 줘서 옆 글자와 떨어뜨린다.
+       (음수 + 양수 마진이 상쇄되므로 행 전체 폭은 그대로) */
+    margin-left: -3px;
+    margin-right: 3px;
+
+    color: var(--pst-text-dim);
+    font-size: 11px;
+    line-height: 1;
+    cursor: grab;
+
+    transition: color 0.15s ease;
+}
+
+.pst-drag-handle:hover {
+    color: var(--pst-accent);
+}
+
+.pst-drag-handle:active {
+    cursor: grabbing;
+}
+
+.pst-bookmark-name {
+    /* <a> 의 기본 파란색 / 밑줄을 지운다 */
+    color: inherit;
+    text-decoration: none;
+    flex: 0 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 4px;
+    padding-top: 2px;
+    cursor: pointer;
+}
+
+/* 마우스로 눌렀을 때는 테두리를 남기지 않는다.
+   :focus-visible 은 키보드로 이동해 왔을 때만 걸리므로 접근성은 유지된다. */
+.pst-bookmark-name:focus {
+    outline: none;
+}
+
+.pst-bookmark-name:focus-visible {
+    outline: 2px solid var(--pst-accent);
+    outline-offset: -2px;
+}
+
+/* 이름이 늘어나지 않으므로 여기서 버튼들을 오른쪽 끝으로 민다 */
+.pst-bookmark-item > button:first-of-type {
+    margin-left: auto;
+}
+
+.pst-bookmark-name:hover {
+    text-decoration: underline;
+}
+
+/* 'New Folder' : 첫번째 탭 최하단 고정 */
+
+.pst-panel-footer {
+    flex: 0 0 auto;
+    padding: 10px 12px;
+    border-top: 1px solid var(--pst-border);
+    background: var(--pst-bg-elev);
+}
+
+.pst-new-folder {
+    width: 100%;
+    appearance: none;
+    border: 1px solid var(--pst-accent);
+    border-radius: 4px;
+    padding: 6px 12px;
+
+    background: linear-gradient(180deg, #e2c78a 0%, var(--pst-accent) 100%);
+    color: #12161d;
+
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.05s ease;
+}
+
+.pst-new-folder:hover {
+    border-color: #ecd7a3;
+    background: linear-gradient(180deg, #eed9a6 0%, #ddc188 100%);
+}
+
+.pst-new-folder:active {
+    transform: translateY(1px);
+}
+
+.pst-new-folder:focus-visible {
+    outline: 2px solid var(--pst-text);
+    outline-offset: 2px;
+}
+
+/* ---------- 컨텍스트 메뉴 (⋮ 클릭 시 마우스 위치에 표시) ---------- */
+
+.pst-context-menu {
+    position: fixed;
+    z-index: 2147483001;
+
+    min-width: 120px;
+    padding: 4px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--pst-bg-elev);
+    border: 1px solid var(--pst-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.pst-context-menu-item {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--pst-text);
+
+    padding: 6px 25px 6px 10px;
+    text-align: left;
+
+    font: inherit;
+    font-size: 13px;
+    white-space: nowrap;
+    cursor: pointer;
+
+    transition: background-color 0.15s ease;
+}
+
+.pst-context-menu-item:hover {
+    background: var(--pst-accent-soft);
+}
+
+.pst-context-menu-item:focus-visible {
+    outline: 2px solid var(--pst-accent);
+    outline-offset: -2px;
+}
+
+/* ================================================================ */
+/* 드래그 앤 드랍                                                    */
+/* ================================================================ */
+
+/* 원래 자리에 남아 있는 항목은 흐리게 표시 */
+.pst-folder[data-dragging="true"],
+.pst-bookmark-item[data-dragging="true"] {
+    opacity: 0.4;
+}
+
+/* ================================================================ */
+/* 사이드바 위치 : 오른쪽                                            */
+/* ================================================================ */
+
+.pst-layout.is-right {
+    left: auto;
+    right: 0;
+}
+
+.pst-layout.is-right .pst-sidebar {
+    border-right: 0;
+    border-left: 1px solid var(--pst-border);
+    box-shadow:
+        -1px 0 0 rgba(255, 255, 255, 0.02),
+        -8px 0 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ================================================================ */
+/* 설정 탭                                                          */
+/* ================================================================ */
+
+.pst-settings-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 설정 폴더는 북마크 폴더(.pst-folder 의 padding-bottom: 8px)보다 두 배로 띄운다 */
+.pst-settings-list > .pst-folder {
+    padding-bottom: 16px;
+}
+
+/* 설정 폴더 헤더 아이콘.
+   접히지 않으므로 상태를 가리키는 화살표(.pst-folder-icon) 대신 고정된 표식을 쓴다. */
+.pst-settings-icon {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 12px;
+    font-size: 12px;
+    line-height: 1;
+    color: var(--pst-accent);
+}
+
+/* 설정 폴더 헤더는 접히지 않으므로 클릭할 수 있는 것처럼 보이지 않게 한다 */
+.pst-settings-list .pst-folder-item,
+.pst-settings-list .pst-folder-item:hover {
+    cursor: default;
+    background: var(--pst-bg-folder);
+}
+
+/* 폴더 헤더 아래에 붙는 설정 항목 영역.
+   북마크 목록과 같은 방식으로 위쪽 폴더 행과 테두리를 한 줄로 공유한다. */
+.pst-settings-body {
+    margin-top: -1px;
+    padding: 15px 10px;
+
+    border: 1px solid var(--pst-border);
+    border-radius: 2px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ---------- 토글 스위치 ---------- */
+
+.pst-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* 실제 checkbox 는 감추고 접근성/키보드 조작만 담당시킨다 */
+.pst-switch-input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.pst-switch-track {
+    flex: 0 0 auto;
+    position: relative;
+    width: 34px;
+    height: 18px;
+    border-radius: 9999px;
+    background: var(--pst-bg-hover);
+    border: 1px solid var(--pst-border);
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.pst-switch-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--pst-text-dim);
+    transition:
+        transform 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.pst-switch-input:checked + .pst-switch-track {
+    background: var(--pst-accent-soft);
+    border-color: var(--pst-accent);
+}
+
+.pst-switch-input:checked + .pst-switch-track .pst-switch-thumb {
+    transform: translateX(16px);
+    background: var(--pst-accent);
+}
+
+.pst-switch-input:focus-visible + .pst-switch-track {
+    outline: 2px solid var(--pst-accent);
+    outline-offset: 2px;
+}
+
+/* ---------- 라디오 버튼 ---------- */
+
+.pst-radio-group {
+    display: flex;
+    gap: 16px;
+}
+
+.pst-radio {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.pst-radio input {
+    margin: 0;
+    accent-color: var(--pst-accent);
+    cursor: pointer;
+}
+
+/* ---------- 한 줄 입력창 / 선택 목록 ---------- */
+
+.pst-input,
+.pst-select {
+    width: 100%;
+    padding: 5px 8px;
+
+    background: var(--pst-bg-folder);
+    border: 1px solid var(--pst-border);
+    border-radius: 2px;
+    color: var(--pst-text);
+
+    font: inherit;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.pst-input::placeholder {
+    color: var(--pst-text-dim);
+}
+
+.pst-select {
+    appearance: none;
+    cursor: pointer;
+    /* ::after 화살표가 앉을 자리 */
+    padding-right: 26px;
+}
+
+/* select 는 교체 요소라 ::after 를 못 붙인다. 껍데기에 그리고 클릭은 통과시킨다 */
+.pst-select-wrap {
+    position: relative;
+    display: block;
+}
+
+.pst-select-wrap::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 9px;
+    margin-top: -2px;
+
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid var(--pst-accent);
+
+    pointer-events: none;
+}
+
+/* 선택 목록의 펼침 항목은 페이지가 아니라 OS 가 그리므로 색을 따로 지정한다 */
+.pst-select option {
+    background: var(--pst-bg-folder);
+    color: var(--pst-text);
+}
+
+.pst-input:focus-visible,
+.pst-select:focus-visible {
+    outline: 2px solid var(--pst-accent);
+    outline-offset: -2px;
+}
+
+/* ---------- 입력 요소 + 버튼 한 줄 배치 ---------- */
+
+.pst-field-row {
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+}
+
+/* 남는 폭은 입력 요소가 가져간다. min-width: 0 이라야 줄어들 수 있다 */
+.pst-field-row > .pst-input,
+.pst-field-row > .pst-select,
+.pst-field-row > .pst-select-wrap {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* 한 줄에 놓인 버튼은 글자 폭만 차지한다.
+   min-width 는 "조회" / "조회 중" 을 오갈 때 목록 폭이 흔들리지 않도록 잡아 둔 값 */
+.pst-field-row > .pst-settings-btn {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 58px;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
+/* ---------- 코드 입력창 ---------- */
+
+.pst-textarea {
+    width: 100%;
+    min-height: 80px;
+    resize: vertical;
+    padding: 6px 8px;
+
+    background: var(--pst-bg-folder);
+    border: 1px solid var(--pst-border);
+    border-radius: 2px;
+    color: var(--pst-text);
+
+    font: inherit;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.pst-textarea::placeholder {
+    color: var(--pst-text-dim);
+}
+
+.pst-textarea:focus-visible {
+    outline: 2px solid var(--pst-accent);
+    outline-offset: -2px;
+}
+
+/* ---------- 설정 탭 버튼 ---------- */
+
+.pst-settings-btn {
+    width: 100%;
+    appearance: none;
+    padding: 5px 12px;
+
+    background: var(--pst-bg-elev);
+    border: 1px solid var(--pst-border);
+    border-radius: 4px;
+    color: var(--pst-text);
+
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.05s ease;
+}
+
+.pst-settings-btn:disabled {
+    color: var(--pst-text-dim);
+    cursor: default;
+}
+
+.pst-settings-btn:not(:disabled):hover {
+    background: var(--pst-bg-hover);
+    border-color: var(--pst-text-dim);
+}
+
+.pst-settings-btn:active {
+    transform: translateY(1px);
+}
+
+.pst-settings-btn:focus-visible {
+    outline: 2px solid var(--pst-accent);
+    outline-offset: 2px;
+}
+
+/* ================================================================ */
+/* 사이드바 접기 : 플로팅 버튼                                       */
+/* ================================================================ */
+
+/* 접을 때 패널만 화면 밖으로 밀어낸다.
+   버튼은 패널 바깥쪽(left/right: 100%)에 놓여 있어 같이 밀려나면서
+   정확히 화면 가장자리에 걸쳐 남는다. */
+.pst-layout.is-hidden {
+    transform: translateX(-100%);
+}
+
+.pst-layout.is-right.is-hidden {
+    transform: translateX(100%);
+}
+
+.pst-toggle {
+    position: absolute;
+    top: 58px;
+    /* 패널의 오른쪽 바깥. 1px 겹쳐 패널 테두리를 덮어서 맞닿는 선을 지운다 */
+    left: calc(100% - 1px);
+
+    appearance: none;
+    width: 28px;
+    height: 38px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--pst-bg);
+    border: 1px solid var(--pst-border);
+    border-left: 0;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.35);
+
+    color: var(--pst-accent);
+    font: inherit;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+/* 패널이 오른쪽에 있으면 버튼도 반대쪽 모서리로 */
+.pst-layout.is-right .pst-toggle {
+    left: auto;
+    right: calc(100% - 1px);
+
+    border-left: 1px solid var(--pst-border);
+    border-right: 0;
+    border-radius: 6px 0 0 6px;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.35);
+}
+
+.pst-toggle:hover {
+    background: var(--pst-bg-hover);
+    color: var(--pst-text);
+}
+
+.pst-toggle:focus-visible {
+    outline: 2px solid var(--pst-accent);
+    outline-offset: 2px;
+}

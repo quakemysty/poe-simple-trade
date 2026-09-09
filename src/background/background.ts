@@ -1,0 +1,50 @@
+// chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+//     // 페이지 로드 완료 시
+//     if (changeInfo.status === "complete" && tab.url) {
+//         // content script에 메시지 전송
+//         chrome.tabs
+//             .sendMessage(tabId, {
+//                 action: "pageLoaded",
+//                 url: tab.url,
+//             })
+//             .catch(() => {
+//                 console.log("content script not loaded");
+//             });
+//     }
+// });
+
+chrome.runtime.onMessage.addListener((msg, _sender, response) => {
+    // 리그 목록 조회
+    if (msg.action == "fetchLeagues") {
+        const game = msg.gameType === "poe2" ? "poe2" : "poe1";
+
+        fetch(`https://poe.ninja/${game}/api/economy/leagues`)
+            .then((res) => res.json())
+            .then((data) => response({ success: true, leagues: data }))
+            .catch(() => response({ success: false }));
+
+        return true; // important
+    }
+    // POE1 Item 조회
+    else if (msg.action === "fetchItemPOE1") {
+        const url = `https://www.pathofexile.com/api/trade/fetch/${msg.itemId}`;
+        //console.log(url);
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => response({ success: true, item: data.result?.[0]?.item }))
+            .catch(() => response({ success: false }));
+
+        return true; // important
+    }
+    // POE2 Item 조회
+    else if (msg.action === "fetchItemPOE2") {
+        const url = `https://www.pathofexile.com/api/trade2/fetch/${msg.itemId}`;
+        //console.log(url);
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => response({ success: true, item: data.result?.[0]?.item }))
+            .catch(() => response({ success: false }));
+
+        return true; // important
+    }
+});
