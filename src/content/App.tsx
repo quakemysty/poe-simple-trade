@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react";
 import { DragDropProvider, type DragEndEvent, type DragOverEvent } from "@dnd-kit/react";
-import { move } from "@dnd-kit/helpers";
+import { isSortable } from "@dnd-kit/react/sortable";
+import { arrayMove, move } from "@dnd-kit/helpers";
 import "./App.css";
 import { FolderItem, type Folder } from "./FolderItem";
 import type { BookmarkMap } from "./BookmarkItem";
@@ -9,15 +10,17 @@ import { Settings } from "./Settings";
 import {
     loadBookmarkData,
     loadSettings,
-    saveBookmarkData,
-    saveSettings,
+    saveBookmarkData as saveBookmarkDataToStorage,
+    saveSettings as saveSettingsToStorage,
     type SidebarPosition,
 } from "./storage";
 import { Util } from "../pathofexile/util";
 
 type TabKey = "bookmark" | "settings";
 
-// 컨텍스트 메뉴가 열린 위치와 대상. bookmarkId 가 없으면 폴더가 대상.
+/**
+ * 컨텍스트 메뉴가 열린 위치와 대상. bookmarkId 가 없으면 폴더가 대상.
+ */
 type ContextMenuState = {
     x: number;
     y: number;
@@ -31,48 +34,39 @@ const TABS: { key: TabKey; label: string }[] = [
 ];
 
 export const App = () => {
-    const [activeTab, setActiveTab] = useState<TabKey>("bookmark");
+    /* ================================================================ */
+    // useState
+    /* ================================================================ */
+    const [activeTab, setActiveTab] = useState<TabKey>("bookmark"); // 현재 탭페이지
 
-    /**
-     * 폴더 목록
-     */
-    const [folders, setFolders] = useState<Folder[]>(() => loadBookmarkData()?.folders || []);
-    /**
-     * 폴더 하위의 북마크 목록.
-     */
+    const [folders, setFolders] = useState<Folder[]>(() => loadBookmarkData()?.folders || []); // 폴더 목록
     const [bookmarks, setBookmarks] = useState<BookmarkMap>(
         () => loadBookmarkData()?.bookmarks || {},
-    );
-    const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null);
-    /**
-     * 설정 탭 - 사이드바 위치는 레이아웃에 영향을 주므로 App 이 들고 있는다
-     */
+    ); // 폴더별 북마크맵
+
+    const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null); // 컨텍스트 메뉴
+
     const [sidebarPosition, setSidebarPosition] = useState<SidebarPosition>(
         () => loadSettings().sidebarPosition,
-    );
-    /**
-     * 플로팅 버튼으로 사이드바 전체를 접었는지 여부
-     */
-    const [isSidebarHidden, setIsSidebarHidden] = useState(() => loadSettings().isSidebarHidden);
-    /**
-     * 드래그가 취소(ESC)되면 onDragOver 로 미리 반영해 둔 상태를 되돌리기 위한 스냅샷
-     */
-    const bookmarksSnapshot = useRef<BookmarkMap>({});
+    ); // 사이드바 위치
 
-    /**
-     * 폴더 / 북마크가 바뀔 때마다 저장한다.
-     * 추가 · 수정 · 삭제와 불러오기는 물론 드래그로 순서를 바꾼 경우까지 여기 한 곳을 거친다.
-     */
+    const [isSidebarHidden, setIsSidebarHidden] = useState(() => loadSettings().isSidebarHidden); // 사이드바 숨김 여부
+
+    /* ================================================================ */
+    // useEffect
+    /* ================================================================ */
+    // 폴더/북마크 변경 시 Storage에 저장
     useEffect(() => {
-        saveBookmarkData({ folders, bookmarks });
+        saveBookmarkDataToStorage({ folders, bookmarks });
     }, [folders, bookmarks]);
 
+    // 사이드바 위치/숨김 변경 시 Storage에 저장
     useEffect(() => {
-        saveSettings({ sidebarPosition, isSidebarHidden });
+        saveSettingsToStorage({ sidebarPosition, isSidebarHidden });
     }, [sidebarPosition, isSidebarHidden]);
 
     /**
-     * 원래 페이지를 사이드바 반대쪽으로 밀어낸다
+     * 사이드바 변경 시 POE 홈페이지의 padding 변경
      */
     useEffect(() => {
         const { classList } = document.body;
@@ -84,7 +78,15 @@ export const App = () => {
     }, [sidebarPosition, isSidebarHidden]);
 
     /**
-     * New Folder
+     * 드래그 취소용 스냅샷
+     */
+    const bookmarksSnapshot = useRef<BookmarkMap>({});
+
+    /* ================================================================ */
+    // Event Handlers
+    /* ================================================================ */
+    /**
+     * [Click Event] New Folder
      */
     const handleNewFolder = () => {
         const folderId = `folder-${Date.now()}`;
@@ -100,7 +102,7 @@ export const App = () => {
     };
 
     /**
-     * New bookmark in Folder
+     * [Click Event] New bookmark in Folder
      */
     const handleNewBookmark = (folderId: string, label: string, url: string) => {
         setBookmarks((prev) => ({
@@ -117,7 +119,7 @@ export const App = () => {
     };
 
     /**
-     * Toggle folder
+     * [Click Event] Toggle folder
      */
     const handleToggleFolder = (folderId: string) => {
         setFolders((prev) =>
@@ -128,7 +130,7 @@ export const App = () => {
     };
 
     /**
-     * 옵션(⋮) 클릭 : 클릭한 아이콘의 왼쪽 아래에 맞춰 컨텍스트 메뉴를 띄운다
+     * [Click Event] 옵션(⋮) 클릭 : 클릭한 아이콘의 왼쪽 아래에 맞춰 컨텍스트 메뉴를 띄운다
      */
     const handlePopupOption = (
         event: MouseEvent<HTMLElement>,
@@ -145,7 +147,7 @@ export const App = () => {
     const handleCloseContextMenu = useCallback(() => setContextMenu(null), []);
 
     /**
-     * 컨텍스트 메뉴 - 북마크 이름 변경
+     * [Click Event] 컨텍스트 메뉴 - 북마크 이름 변경
      */
     const handleRenameBookmark = (folderId: string, bookmarkId?: string) => {
         const targetFolder = folders.find((folder) => folder.id === folderId);
@@ -185,8 +187,7 @@ export const App = () => {
     };
 
     /**
-     * 컨텍스트 메뉴 - "현재 검색으로 대체"
-     * 북마크의 URL을 현재 브라우저의 URL로 대체합니다.
+     * [Click Event] 컨텍스트 메뉴 - "현재 검색으로 대체"
      */
     const handleReplaceBookmarkUrl = () => {
         if (!contextMenu?.bookmarkId) return;
@@ -204,7 +205,7 @@ export const App = () => {
     };
 
     /**
-     * Delete folder
+     * [Click Event] Delete folder
      */
     const handleDeleteFolder = (folderId: string) => {
         if (!window.confirm("삭제하시겠습니까?")) {
@@ -220,7 +221,7 @@ export const App = () => {
     };
 
     /**
-     * Delete bookmark
+     * [Click Event] Delete bookmark
      */
     const handleDeleteBookmark = (folderId: string, bookmarkId: string) => {
         if (!window.confirm("삭제하시겠습니까?")) {
@@ -233,51 +234,65 @@ export const App = () => {
         }));
     };
 
-    // ================================================================
-    // 설정 탭
-    // ================================================================
-
     /**
-     * 사이드바를 화면 왼쪽 / 오른쪽 중 어디에 붙일지
+     * 사이드바 왼쪽/오른쪽 변경 시
      */
     const handleChangeSidebarPosition = (position: SidebarPosition) => {
         setSidebarPosition(position);
     };
 
-    // ================================================================
-    // 드래그 앤 드랍
-    // 배열 / Record 조작은 @dnd-kit/helpers 의 move() 가 전부 처리한다.
-    // move() 는 이벤트에서 source / target 과 정렬 인덱스를 읽어
-    // 같은 폴더 안에서의 순서 변경과 다른 폴더로의 이동을 함께 계산한다.
-    // ================================================================
+    /**
+     * [Drag Start Event]
+     *
+     * @see https://dndkit.com/react/guides/multiple-sortable-lists
+     */
     const handleDragStart = () => {
         bookmarksSnapshot.current = bookmarks;
     };
 
     /**
-     * 북마크는 드래그하는 동안 바로 옮겨서 놓일 자리를 보여준다
+     * [Drag Over Event] 폴더와 북마크 둘다 DragEnd 에서 State 처리시 UI 오류발생. 북마크는 DragOver 에서 State 변경.
+     *
+     * @see https://dndkit.com/react/guides/multiple-sortable-lists
      */
     const handleDragOver = (event: DragOverEvent) => {
-        if (event.operation.source?.type === "folder") return;
-
-        setBookmarks((prev) => move(prev, event));
+        if (event.operation.source?.type === "bookmark") {
+            setBookmarks((prev) => move(prev, event));
+        }
     };
 
     /**
-     * 폴더는 순서가 계속 요동치지 않도록 드래그가 끝날 때 한 번만 옮긴다
+     * [Drag End Event] 폴더는 순서가 계속 요동치지 않도록 드래그가 끝날 때 한 번만 옮긴다
+     *
+     * @see https://dndkit.com/react/guides/multiple-sortable-lists
      */
     const handleDragEnd = (event: DragEndEvent) => {
-        if (event.canceled) {
-            // onDragOver 로 미리 반영해 둔 북마크 이동을 되돌린다
-            setBookmarks(bookmarksSnapshot.current);
+        const { source, canceled } = event.operation;
+
+        // 드래그 취소 시
+        if (canceled) {
+            setBookmarks(bookmarksSnapshot.current); // handleDragOver 에서 옮겨진 상태 롤백
+
             return;
         }
 
-        if (event.operation.source?.type !== "folder") return;
+        if (source?.type !== "folder" || !isSortable(source)) return;
 
-        setFolders((prev) => move(prev, event));
+        // 리스트 밖(최하단 빈 영역)에서 놓으면 target 이 null 이라 move() 가 원본을 그대로 반환한다.
+        // dnd-kit 이 드래그 중 갱신해 둔 index 로 직접 옮긴다.
+        setFolders((prev) => {
+            const from = prev.findIndex((folder) => folder.id === source.id);
+            const to = source.index;
+
+            if (from === -1 || from === to) return prev;
+
+            return arrayMove(prev, from, to);
+        });
     };
 
+    /**
+     * 전체 패널 위치,숨김 처리 css
+     */
     const layoutClassName = [
         "pst-layout",
         sidebarPosition === "right" ? "is-right" : "",
@@ -286,13 +301,13 @@ export const App = () => {
         .filter(Boolean)
         .join(" ");
 
-    // 화살표는 눌렀을 때 패널이 움직일 방향을 가리킨다
+    // 사이드바 접기/펼치기 플로팅 버튼
     const toggleArrow = (sidebarPosition === "left") !== isSidebarHidden ? "◀" : "▶";
     const toggleLabel = isSidebarHidden ? "사이드바 열기" : "사이드바 닫기";
 
     return (
         <div className={layoutClassName}>
-            {/* 패널 바깥쪽 모서리에 붙는 플로팅 버튼. 패널을 접어도 화면 가장자리에 남는다 */}
+            {/* 사이드바 접기/펼치기 플로팅 버튼 */}
             <button
                 type="button"
                 className="pst-toggle"
@@ -348,7 +363,7 @@ export const App = () => {
                                 </ul>
                             </DragDropProvider>
                         </div>
-                        {/* 하단 */}
+                        {/* 최하단 footer */}
                         <div className="pst-panel-footer">
                             <button
                                 type="button"
@@ -386,14 +401,14 @@ export const App = () => {
                     x={contextMenu.x}
                     y={contextMenu.y}
                     onClose={handleCloseContextMenu}
-                    items={[
+                    menuItems={[
                         {
                             key: "rename",
                             label: contextMenu.bookmarkId ? "북마크 이름 변경" : "폴더명 변경",
                             onSelect: () =>
                                 handleRenameBookmark(contextMenu.folderId, contextMenu.bookmarkId),
                         },
-                        // '현재 검색으로 대체' 는 북마크일 때만 넣는다
+                        // '현재 검색으로 대체' 는 북마크일 때만 보여야 함
                         ...(contextMenu.bookmarkId
                             ? [
                                   {

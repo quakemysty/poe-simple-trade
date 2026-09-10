@@ -9,11 +9,11 @@ export type ContextMenuItem = {
 type ContextMenuProps = {
     x: number;
     y: number;
-    items: ContextMenuItem[];
+    menuItems: ContextMenuItem[];
     onClose: () => void;
 };
 
-export const ContextMenu = ({ x, y, items, onClose }: ContextMenuProps) => {
+export const ContextMenu = ({ x, y, menuItems, onClose }: ContextMenuProps) => {
     const menuRef = useRef<HTMLDivElement>(null);
     const [position, setPosition] = useState({ x, y });
 
@@ -63,7 +63,7 @@ export const ContextMenu = ({ x, y, items, onClose }: ContextMenuProps) => {
             role="menu"
             style={{ left: `${position.x}px`, top: `${position.y}px` }}
         >
-            {items.map((item) => (
+            {menuItems.map((item) => (
                 <button
                     key={item.key}
                     type="button"

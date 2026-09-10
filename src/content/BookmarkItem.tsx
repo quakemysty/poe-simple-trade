@@ -9,22 +9,10 @@ export type Bookmark = {
     url: string;
 };
 
-// 폴더 id -> 그 폴더의 북마크 목록.
-// @dnd-kit/helpers 의 move() 가 여러 목록 사이의 이동을 처리하려면
-// 목록이 이 Record 형태여야 한다. (키가 곧 폴더 = 그룹 식별자)
-export type BookmarkMap = Record<string, Bookmark[]>;
-
 /**
- * 저장해 둔 검색 조건과 현재 리그로 실제 이동할 주소를 만든다
+ * 폴더 id 를 key 로, 그 폴더 안의 북마크 배열을 value 로 갖는 객체
  */
-const buildSearchUrl = (searchCondition: string, leagueName: string): string => {
-    const prefixHostUrl = `${document.location.protocol}//${document.location.host}`;
-    const league = encodeURIComponent(leagueName);
-
-    return Util.detectGameType() === "poe1"
-        ? `${prefixHostUrl}/trade/search/${league}/${searchCondition}`
-        : `${prefixHostUrl}/trade2/search/poe2/${league}/${searchCondition}`;
-};
+export type BookmarkMap = Record<string, Bookmark[]>;
 
 type BookmarkProps = {
     bookmark: Bookmark;
@@ -41,10 +29,11 @@ export const BookmarkItem = ({
     onPopupOption,
     onDeleteBookmark,
 }: BookmarkProps) => {
-    // group 에 폴더 id 를 넣으면 같은 폴더 안에서의 정렬과
-    // 다른 폴더로의 이동을 dnd-kit 이 같은 방식으로 처리한다.
-    // handleRef 를 지정하면 dnd-kit 이 pointerdown 을 핸들에만 걸어,
-    // 드래그는 핸들에서만 시작되고 나머지 영역은 글자 선택 / 클릭에 쓸 수 있다.
+    /**
+     * Bookmark Drag&Drop Hook
+     *
+     * @see https://dndkit.com/react/guides/multiple-sortable-lists
+     */
     const { ref, handleRef, isDragSource } = useSortable({
         id: bookmark.id,
         index,
@@ -53,12 +42,12 @@ export const BookmarkItem = ({
         accept: "bookmark",
     });
 
-    // 이동은 <a href> 가 맡는다. 리그가 없거나 주소가 비었으면 href 를 만들지 않는다.
     const leagueName = loadSettings().leagueName;
-    const searchUrl = leagueName && bookmark.url ? buildSearchUrl(bookmark.url, leagueName) : "";
+    const searchUrl =
+        leagueName && bookmark.url ? Util.getItemSearchUrl(bookmark.url, leagueName) : "";
 
     /**
-     * 북마크 클릭 이벤트 : 갈 수 없는 상태면 이동을 막고 이유를 알린다
+     * [Click Event] 북마크 클릭
      */
     const handleBookmarkClick = (event: MouseEvent<HTMLAnchorElement>) => {
         if (!leagueName) {
@@ -80,6 +69,7 @@ export const BookmarkItem = ({
             data-dragging={isDragSource}
             title={bookmark.label}
         >
+            {/* Drag Handle */}
             <span
                 ref={handleRef}
                 className="pst-drag-handle"
@@ -88,7 +78,7 @@ export const BookmarkItem = ({
             >
                 ⠿
             </span>
-            {/* draggable={false} : <a> 의 기본 드래그가 dnd-kit 의 정렬 드래그를 가로채지 않도록 */}
+            {/* Bookmark Name */}
             <a
                 className="pst-bookmark-name"
                 href={searchUrl || undefined}
@@ -97,6 +87,7 @@ export const BookmarkItem = ({
             >
                 {bookmark.label}
             </a>
+            {/* Bookmark Action Icons */}
             <button
                 type="button"
                 className="pst-btn-bookmark"

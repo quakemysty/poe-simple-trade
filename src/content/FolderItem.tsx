@@ -7,7 +7,7 @@ import { Util } from "../pathofexile/util";
 export type Folder = {
     id: string;
     name: string;
-    /** 만들어질 때의 게임 버전. 주소로 정해지며 이후 바뀌지 않는다 */
+    /** poe1 or poe2 */
     gameType: string;
     /** 폴더를 펼쳐 둔 상태인지 */
     expanded: boolean;
@@ -35,23 +35,22 @@ export const FolderItem = ({
     onDeleteBookmark,
 }: FolderProps) => {
     /**
-     * 북마크 추가(+) : 이름과 URL 을 입력받아 넘긴다.
+     * [Click Event] 북마크 추가 버튼 클릭 시
      */
     const handleNewBookmark = () => {
         const label = Util.getItemSearchInputBoxValue();
 
-        const url = Util.getItemSearchConditionUrl(); // 현재 URL에서 검색 조건 부분만 추출
+        const url = Util.getItemSearchConditionUrl();
 
         onNewBookmark(folder.id, label, url);
     };
 
-    // ref       : 폴더 전체(헤더 + 북마크 목록)를 드롭 영역으로 삼는다.
-    //             접혀 있거나 비어 있는 폴더에도 북마크를 떨어뜨릴 수 있다.
-    // handleRef : 드래그는 핸들(⠿)에서만 시작한다.
-    // sourceRef : 끌 때 따라다니는 모양은 헤더 한 줄로 둔다.
-    //             (ref 만 쓰면 안쪽 북마크 목록까지 통째로 끌려 보인다)
-    // collisionPriority : 북마크끼리의 충돌이 폴더 충돌보다 우선하도록 낮춘다.
-    const { ref, handleRef, isDragSource } = useSortable({
+    /**
+     * Folder Drag&Drop Hook
+     *
+     * @see https://dndkit.com/react/guides/multiple-sortable-lists
+     */
+    const { ref, handleRef, targetRef, isDragSource } = useSortable({
         id: folder.id,
         index,
         type: "folder",
@@ -64,14 +63,18 @@ export const FolderItem = ({
             {/* ================================================================ */}
             {/* 폴더 */}
             {/* ================================================================ */}
+            {/* 드롭 판정 영역(targetRef)은 헤더 행으로 제한한다. li 전체를 대상으로 두면 펼쳐진
+                북마크 높이까지 포함되어, 낮은 폴더를 높은 폴더 위로 끌 때 스왑 직후에도 포인터가
+                상대 영역 안에 남아 자리가 계속 뒤바뀐다(swap loop). */}
             <div
+                ref={targetRef}
                 className="pst-folder-item"
                 role="button"
                 tabIndex={0}
                 aria-expanded={folder.expanded}
                 onClick={() => onToggleFolder(folder.id)}
             >
-                {/* 핸들 클릭이 폴더 펼치기로 이어지지 않도록 막는다 */}
+                {/* Drag Handle */}
                 <span
                     ref={handleRef}
                     className="pst-drag-handle"
@@ -81,13 +84,16 @@ export const FolderItem = ({
                 >
                     ⠿
                 </span>
+                {/* Folder Icon */}
                 <span
                     className={`pst-folder-icon${folder.expanded ? " is-expanded" : ""}`}
                     aria-hidden="true"
                 >
                     ▶
                 </span>
+                {/* Folder Name */}
                 <span className="pst-folder-name">{folder.name}</span>
+                {/* Folder Action Icons */}
                 <button
                     type="button"
                     className="pst-btn-bookmark"

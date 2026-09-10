@@ -7,14 +7,16 @@ import { setEventToPoeSearchInputBox } from "../pathofexile/makeAutoTileSearch";
 const container = document.createElement("div");
 document.body.appendChild(container);
 
-//const container = document.getElementById("root");
-
 // The '!' operator ensures TypeScript that 'container' is not null
 const root = createRoot(container!);
 
-// 스토리지에서 세팅값 읽은 후 화면 진입
+/**
+ * 크롬 확장프로그램 진입점
+ *
+ * @see /public/manifest.json 파일의 "content_scripts" 항목 참고
+ */
 void hydrateStorage().then(() => {
-    // 검색어 자동 ~ 붙이기는 설정이 켜져 있을 때만 리스너를 단다
+    // '검색어 자동 ~ 붙이기' keydown 이벤트 세팅
     setEventToPoeSearchInputBox(loadSettings().autoAppendTilde);
 
     root.render(

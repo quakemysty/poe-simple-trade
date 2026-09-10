@@ -131,8 +131,7 @@ export const loadSettings = (): AppSettings => {
 };
 
 /**
- * 설정 항목을 App(사이드바 위치)과 Settings(자동 완성)가 나눠 들고 있으므로
- * 바뀐 항목만 받아 저장된 값과 합친다.
+ * 설정 저장
  */
 export const saveSettings = (patch: Partial<AppSettings>) => {
     writeToStorage(SETTINGS_KEY, { ...loadSettings(), ...patch });
@@ -144,11 +143,9 @@ export const saveSettings = (patch: Partial<AppSettings>) => {
 export const cache = new Map<string, unknown>();
 
 /**
- * 스토리지에 쓰기
+ * 스토리지에 저장
  */
-
 export const writeToStorage = (key: string, value: unknown) => {
-    // 캐시를 먼저 갱신해야 바로 이어지는 읽기가 방금 쓴 값을 본다
     cache.set(key, value);
 
     chrome.storage.local

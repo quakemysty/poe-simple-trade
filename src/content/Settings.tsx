@@ -64,12 +64,15 @@ export const Settings = ({
     sidebarPosition,
     onChangeSidebarPosition,
 }: SettingsProps) => {
-    // 리그명. 직접 입력하든 목록에서 고르든 결국 이 값 하나로 모인다
+    // 리그명
     const [leagueName, setLeagueName] = useState(() => loadSettings().leagueName);
     // 선택 목록에 채울 리그들
     const [leagueOptions, setLeagueOptions] = useState<string[]>([]);
+    // 검색어 자동 완성(~) 사용 여부
     const [autoAppendTilde, setAutoAppendTilde] = useState(() => loadSettings().autoAppendTilde);
+    // 리그 목록 조회 중 표시용
     const [isLoadingLeagues, setIsLoadingLeagues] = useState(false);
+    // 북마크 import 텍스트박스
     const [importCode, setImportCode] = useState("");
 
     useEffect(() => {
@@ -77,7 +80,7 @@ export const Settings = ({
     }, [leagueName, autoAppendTilde]);
 
     /**
-     * 리그 목록 조회 : poe.ninja API 에서 받아온다
+     * 리그 목록 조회 : poe.ninja API 조회
      */
     const handleFetchLeagues = async () => {
         setIsLoadingLeagues(true);
@@ -107,7 +110,7 @@ export const Settings = ({
     };
 
     /**
-     * 검색어 자동 완성(~) 사용 여부
+     * [Click Event] 검색어 자동 완성(~) 변경 시
      */
     const handleToggleAutoAppendTilde = (enabled: boolean) => {
         setAutoAppendTilde(enabled);
@@ -115,7 +118,7 @@ export const Settings = ({
     };
 
     /**
-     * 전체 북마크를 JSON 코드로 만들어 클립보드에 복사
+     * [Click Event] Export Boomkmark
      */
     const handleExportBookmarks = async () => {
         const code = JSON.stringify({ folders, bookmarks } satisfies BookmarkData, null, 2);
@@ -130,7 +133,7 @@ export const Settings = ({
     };
 
     /**
-     * 붙여넣은 코드로 북마크 전체를 교체. 성공하면 입력창을 비운다.
+     * [Click Event] Import Boomkmark
      */
     const handleImportBookmarks = () => {
         const trimmed = importCode.trim();
@@ -207,7 +210,7 @@ export const Settings = ({
             </SettingFolder>
 
             {/* ============================================================ */}
-            {/* 자동 완성 설정                                              */}
+            {/* 검색 시 ~ 자동 입력 설정                                     
             {/* ============================================================ */}
             <SettingFolder name="자동 완성 설정">
                 <label className="pst-switch">

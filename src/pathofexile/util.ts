@@ -22,17 +22,25 @@ const getItemSearchInputBoxValue = (): string => {
 };
 
 /**
- * 이 파일이 내보내는 것은 Util 하나뿐이다.
- * 함수를 따로 export 하지 않으므로 다른 파일에서는 반드시 Util.xxx() 로 쓴다.
- * 함수를 추가하면 위에 선언하고 아래 목록에 넣는다.
+ * 저장해 둔 Bookmark URL 과 현재 리그로 실제 이동할 주소를 만든다
  */
+const getItemSearchUrl = (bookmarkUrl: string, leagueName: string): string => {
+    const prefixHostUrl = `${document.location.protocol}//${document.location.host}`;
+    const league = encodeURIComponent(leagueName);
+
+    return Util.detectGameType() === "poe1"
+        ? `${prefixHostUrl}/trade/search/${league}/${bookmarkUrl}`
+        : `${prefixHostUrl}/trade2/search/poe2/${league}/${bookmarkUrl}`;
+};
+
 export const Util = {
     detectGameType,
     getItemSearchConditionUrl,
     getItemSearchInputBoxValue,
+    getItemSearchUrl: getItemSearchUrl,
 };
 
-// /** localStorage 에 저장된 북마크가 없을 때 처음 보여줄 예시 데이터 */
+// /** localStorage 테스트용 */
 // const INITIAL_FOLDERS: Folder[] = [
 //     { id: "folder-1", name: "폴더-1", gameType: detectGameType(), expanded: false },
 //     { id: "folder-2", name: "폴더-2", gameType: detectGameType(), expanded: false },
