@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { App } from "./App";
 import { hydrateStorage, loadSettings } from "./storage";
 import { setEventToPoeSearchInputBox } from "../pathofexile/makeAutoTileSearch";
+import { MakeExportButtons } from "../pathofexile/makeExportButtons_for_POB";
 
 const container = document.createElement("div");
 document.body.appendChild(container);
@@ -22,6 +23,8 @@ void hydrateStorage().then(() => {
     root.render(
         <React.StrictMode>
             <App />
+            {/* 검색결과 아이템마다 POB Export 버튼 */}
+            <MakeExportButtons />
         </React.StrictMode>,
     );
 });

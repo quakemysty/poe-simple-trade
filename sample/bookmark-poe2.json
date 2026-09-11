@@ -1,0 +1,128 @@
+{
+    "folders": [
+        {
+            "id": "folder-1788965989427",
+            "name": "가성비",
+            "gameType": "poe2",
+            "expanded": true
+        },
+        {
+            "id": "folder-1789090108706",
+            "name": "주얼",
+            "gameType": "poe2",
+            "expanded": true
+        },
+        {
+            "id": "folder-1788944478896",
+            "name": "유니크",
+            "gameType": "poe2",
+            "expanded": true
+        },
+        {
+            "id": "folder-1788968607047",
+            "name": "레어",
+            "gameType": "poe2",
+            "expanded": true
+        }
+    ],
+    "bookmarks": {
+        "folder-1788944478896": [
+            {
+                "id": "bookmark-1788950887073",
+                "label": "헤드헌터",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSejt9yevJc95O73nbskFJR6mksgAk-nrNllcbN7yZtUXh7fSO18vWvJ67QEkHbGSxklV0NUxZYl6Kko5SWmZOSWoRSCK2NrYWAMvaCCR6AAAA"
+            },
+            {
+                "id": "bookmark-1788965742535",
+                "label": "마법사의 피",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSer284_WmqW-a1ryZO0Ph7ZQ9SjpKJZUFIJm3XTvfdMxQeDu94_WyNa_nLlDSAZtZrGQVXQ1Tk5iXoqSjlJaZU5JaBJKIrY2tBQBqeofLewAAAA"
+            },
+            {
+                "id": "bookmark-1788944530358",
+                "label": "눈의 인도하는 손바닥",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSet3R8WbuDIU3c3e87m95O3XG664pCm_aJrzeMOV191IlHaWSygKQsjctG9-09Si8ae1827JBSQdserGSVXQ1TEFiXoqSjlJaZk5JahFIIrY2thYAHPskloUAAAA"
+            },
+            {
+                "id": "bookmark-1788966222549",
+                "label": "베렉의 길",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSer1pwesFnW_mzlB4tWOHko5SSWUBSPhNT-_rzVvetMxVeL1hxpvlDUo6YAOLlayiq2FqEvNSlHSU0jJzSlKLQBKxtbG1ANnc0PN4AAAA"
+            },
+            {
+                "id": "bookmark-1788966233970",
+                "label": "베렉의 유예",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSer1pwesFnW_mzlB4M2fBmxkdSjpKJZUFIJk3Pb2vN2950zJX4fWGGW-WNyjpgM0sVrKKroapScxLUdJRSsvMKUktAknE1sbWAgB2jE-WewAAAA"
+            },
+            {
+                "id": "bookmark-1788966229435",
+                "label": "베렉의 손아귀",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSer1pwesFnW_mzlB40zbhzdSWV9sblHSUSioLQJJvenpfb97ypmWuwusNM94sB8mAjC1WsoquhqlJzEtR0lFKy8wpSS0CScTWxtYCAESkHDp-AAAA"
+            },
+            {
+                "id": "bookmark-1788966239862",
+                "label": "조련",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSerNww-sFK5R0lEoqC0D819taXm2ZqPB6w4w3yxuUdMDGFCtZRVfDFCTmpSjpKKVl5pSkFoEkYmtjawFe-4fnbgAAAA"
+            },
+            {
+                "id": "bookmark-1789089685052",
+                "label": "신성한 불꽃",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSetO94E3LxrdT5yi83tbxam-zko5SSWUBWKZl45u2HoU3rZ1vWzYo6YANLFayiq6GKUjMS1HSUUrLzClJLQJJxNbG1gIAzl_xrHgAAAA"
+            },
+            {
+                "id": "bookmark-1789089768862",
+                "label": "명을 받은 자",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSer2q9c3cFoXXG2a_mdug8GbeBCUdpZLKApDUm1kb3nTMeDt1jsKbDXuVdMAmFitZRVfDFCTmpSjpKKVl5pSkFoEkYmtjawEyU3OPeQAAAA"
+            }
+        ],
+        "folder-1788965989427": [
+            {
+                "id": "bookmark-1788966041817",
+                "label": "대혼란",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSet3T8HbGntfzGpR0lEoqC0BCbzatfbWj403LXIXXq1a-2rjjzdwtSjpg84qVrKKrYcoS81KUdJTSMnNKUotAErG1sbUAr5ebzHcAAAA"
+            },
+            {
+                "id": "bookmark-1788965993418",
+                "label": "고통의 멍에",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSerV5wdu2rW_mzlB4vbL3zfQJSjpKJZUFIJm3MzretMxVeL1q5auNO97M3aKkAzazWMkquhqmJjEvRUlHKS0zpyS1CCQRWxtbCwCL6S5IewAAAA"
+            },
+            {
+                "id": "bookmark-1789092837873",
+                "label": "레오폴드의 갈채",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSer2g482MJW_7t7yePOfN3BkKrzZ0vNnYoqSjVFJZAJJ_0zHjddvkN3MbFN7MW_pqw0QlHbDJxUpW0dUwNYl5KUo6SmmZOSWpRSCJ2NrYWgCrWI1JgQAAAA"
+            },
+            {
+                "id": "bookmark-1789092848293",
+                "label": "메기노드의 허리띠",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSer1yyqsdG1637ng9ec6buTMU3k7veL1szeu5C5R0lEoqC0BK3jTPfbWh4c3ivSiSIPOLlayiq2HKEvNSlHSU0jJzSlKLQBKxtbG1AMwRJkqHAAAA"
+            },
+            {
+                "id": "bookmark-1788965849855",
+                "label": "앗지리의 경멸",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSejN1-pvlDa-XrXkzd4bCq017X6_coaSjVFJZAJJ8taHj9bwZb5a3KLzZsFdJB2xmsZJVdDVMQWJeipKOUlpmTklqEUgitja2FgAC99rJewAAAA"
+            }
+        ],
+        "folder-1788968607047": [
+            {
+                "id": "bookmark-1788968612926",
+                "label": "창 (dps 500~)",
+                "url": "H4sIAAAAAAAACnWNsQrDMBBD_0WzKV2y-FdKKNfkWgzJ2bHPlGD878Hp4gzVIgkJXkFS0pxgC3xQ5wUWiacc6bUwqjn3BPso0D0wLEhmGLzdohzbMNaxq7_bs-tdnEj54-N-oX2ZgpdbCkyxASNFp9eLeMnitsyotRrwll1YWfQPZg6nrU5gh-Femw4r-piC6QAAAA"
+            },
+            {
+                "id": "bookmark-1789090511293",
+                "label": "갑옷 (ES)",
+                "url": "H4sIAAAAAAAACnVNuwrDMBD7F82mZK1_pYTiutfWED_qOw_B3L-XpIszRIOQkJA6WJw0hu3IRUJOsGDyrbrHQlCz5wx765C1ECxcesLgFRahugWzzoP91-6DH6R3Qu9c18ObqzG3evEfYoGqGtC3hRIpyckM7RxDgr1Ok274ASSHLQbIAAAA"
+            }
+        ],
+        "folder-1789090108706": [
+            {
+                "id": "bookmark-1789090132601",
+                "label": "허무의 산물 (반경 - 죽음의 춤)",
+                "url": "H4sIAAAAAAAACk2MMQrCMABFryJ_DqKhaM1VpEhsIwRqW5oUlJhFHARHER3s5iQdHDp6o8Q7SAWh4-f99wyU5rpSYAZ5oWWegUGJuCr5MhWwBBlfCzB8rkfXtL6-Dfz-5Zo3CPS26Ig7PXzd-svBPRt3voP8kgpsbv4XniUgWMlUi7IDkSWmNw1kAgaxKVIZSz3s_AUNKJ2OwnBGd-OA0glsRPo9G9kv_sCb5r0AAAA"
+            },
+            {
+                "id": "bookmark-1789090417470",
+                "label": "우물의 심장 (2게인)",
+                "url": "H4sIAAAAAAAACoWQy2rCQBiFX0XOepDc5voqRSTGEQZiEsxElDA7dy6lUKR2ZTcliy667BtlHqLE0oWF4Pp85z8ff4vaprapoVqUlTVlAYVaZ80mXeQajqBI1xoK_vzZd9_-8jLxx86_vYPA7qsh6Y9Xf_nyz4f-o-tPryC3kzXUU_uHZGVTWBCsTG715jcySyjoXZWbzNjpUJmHLEh4zCgTcOQhMSPYpnmjB_W1KaBCN7QebEQ0oEIkVPKxjTjiIowZl8koEYSUMRkwOkrEUnDBJZU3z39vuNeOnJu5H39lVuaIAQAA"
+            }
+        ]
+    }
+}

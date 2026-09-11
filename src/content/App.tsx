@@ -7,16 +7,17 @@ import { FolderItem, type Folder } from "./FolderItem";
 import type { BookmarkMap } from "./BookmarkItem";
 import { ContextMenu } from "./ContextMenu";
 import { Settings } from "./Settings";
+import { PoeNinjaCurrency } from "./PoeNinjaCurrency";
 import {
     loadBookmarkData,
     loadSettings,
     saveBookmarkData as saveBookmarkDataToStorage,
     saveSettings as saveSettingsToStorage,
+    type Language,
     type SidebarPosition,
 } from "./storage";
-import { Util } from "../pathofexile/util";
-
-type TabKey = "bookmark" | "settings";
+import { poeUtil } from "../pathofexile/poeUtil";
+import { ttt, type MessageKey } from "../i18n";
 
 /**
  * 컨텍스트 메뉴가 열린 위치와 대상. bookmarkId 가 없으면 폴더가 대상.
@@ -28,16 +29,17 @@ type ContextMenuState = {
     bookmarkId?: string;
 };
 
-const TABS: { key: TabKey; label: string }[] = [
-    { key: "bookmark", label: "북마크" },
-    { key: "settings", label: "설정" },
+const TABS: { key: string; labelKey: MessageKey }[] = [
+    { key: "bookmark", labelKey: "tab.bookmark" },
+    { key: "currency", labelKey: "tab.currency" },
+    { key: "settings", labelKey: "tab.settings" },
 ];
 
 export const App = () => {
     /* ================================================================ */
     // useState
     /* ================================================================ */
-    const [activeTab, setActiveTab] = useState<TabKey>("bookmark"); // 현재 탭페이지
+    const [activeTab, setActiveTab] = useState<string>("bookmark"); // 현재 탭페이지
 
     const [folders, setFolders] = useState<Folder[]>(() => loadBookmarkData()?.folders || []); // 폴더 목록
     const [bookmarks, setBookmarks] = useState<BookmarkMap>(
@@ -51,6 +53,8 @@ export const App = () => {
     ); // 사이드바 위치
 
     const [isSidebarHidden, setIsSidebarHidden] = useState(() => loadSettings().isSidebarHidden); // 사이드바 숨김 여부
+
+    const [language, setLanguage] = useState<Language>(() => loadSettings().language); // 표시 언어
 
     /* ================================================================ */
     // useEffect
@@ -90,12 +94,12 @@ export const App = () => {
      */
     const handleNewFolder = () => {
         const folderId = `folder-${Date.now()}`;
-        const folderName = window.prompt("폴더 이름을 입력하세요.");
+        const folderName = window.prompt(ttt("folder.promptName"));
         if (!folderName) return;
 
         setFolders((prev) => [
             ...prev,
-            { id: folderId, name: folderName, gameType: Util.detectGameType(), expanded: false },
+            { id: folderId, name: folderName, gameType: poeUtil.detectGameType(), expanded: false },
         ]);
         // 빈 폴더도 드롭 대상이 되려면 BookmarkMap 에 키가 있어야 한다
         setBookmarks((prev) => ({ ...prev, [folderId]: [] }));
@@ -109,7 +113,7 @@ export const App = () => {
             ...prev,
             [folderId]: [
                 ...(prev[folderId] ?? []),
-                { id: `bookmark-${Date.now()}`, label, url, gameType: Util.detectGameType() },
+                { id: `bookmark-${Date.now()}`, label, url, gameType: poeUtil.detectGameType() },
             ],
         }));
         // 새 북마크가 바로 보이도록 폴더를 펼친다
@@ -160,7 +164,7 @@ export const App = () => {
 
         const currentName = targetBookmark ? targetBookmark.label : targetFolder.name;
         const inputName = window.prompt(
-            targetBookmark ? "북마크 이름을 입력하세요." : "폴더 이름을 입력하세요.",
+            targetBookmark ? ttt("bookmark.promptName") : ttt("folder.promptName"),
             currentName,
         );
 
@@ -193,7 +197,7 @@ export const App = () => {
         if (!contextMenu?.bookmarkId) return;
         const folderId = contextMenu.folderId;
         const bookmarkId = contextMenu.bookmarkId;
-        const currentUrl = Util.getItemSearchConditionUrl(); // 현재 URL에서 검색 조건 부분만 추출
+        const currentUrl = poeUtil.getItemSearchConditionUrl(); // 현재 URL에서 검색 조건 부분만 추출
 
         setBookmarks((prev) => ({
             ...prev,
@@ -202,13 +206,15 @@ export const App = () => {
             ),
         }));
         setContextMenu(null);
+
+        alert(ttt("bookmark.replacedWithCurrentSearch"));
     };
 
     /**
      * [Click Event] Delete folder
      */
     const handleDeleteFolder = (folderId: string) => {
-        if (!window.confirm("삭제하시겠습니까?")) {
+        if (!window.confirm(ttt("common.confirmDelete"))) {
             return;
         }
 
@@ -224,7 +230,7 @@ export const App = () => {
      * [Click Event] Delete bookmark
      */
     const handleDeleteBookmark = (folderId: string, bookmarkId: string) => {
-        if (!window.confirm("삭제하시겠습니까?")) {
+        if (!window.confirm(ttt("common.confirmDelete"))) {
             return;
         }
 
@@ -239,6 +245,15 @@ export const App = () => {
      */
     const handleChangeSidebarPosition = (position: SidebarPosition) => {
         setSidebarPosition(position);
+    };
+
+    /**
+     * 표시 언어 변경 시
+     * t() 는 저장소에서 언어를 읽으므로, useEffect 가 아니라 여기서 먼저 저장해야 다시 그릴 때 새 언어가 나온다.
+     */
+    const handleChangeLanguage = (nextLanguage: Language) => {
+        saveSettingsToStorage({ language: nextLanguage });
+        setLanguage(nextLanguage);
     };
 
     /**
@@ -303,7 +318,7 @@ export const App = () => {
 
     // 사이드바 접기/펼치기 플로팅 버튼
     const toggleArrow = (sidebarPosition === "left") !== isSidebarHidden ? "◀" : "▶";
-    const toggleLabel = isSidebarHidden ? "사이드바 열기" : "사이드바 닫기";
+    const toggleLabel = isSidebarHidden ? ttt("sidebar.open") : ttt("sidebar.close");
 
     return (
         <div className={layoutClassName}>
@@ -330,7 +345,7 @@ export const App = () => {
                             className={`pst-tab${activeTab === tab.key ? " is-active" : ""}`}
                             onClick={() => setActiveTab(tab.key)}
                         >
-                            {tab.label}
+                            {ttt(tab.labelKey)}
                         </button>
                     ))}
                 </nav>
@@ -374,6 +389,15 @@ export const App = () => {
                             </button>
                         </div>
                     </div>
+                ) : activeTab === "currency" ? (
+                    // ================================================================
+                    // 시세 탭
+                    // ================================================================
+                    <div className="pst-panel">
+                        <div className="pst-panel-body">
+                            <PoeNinjaCurrency />
+                        </div>
+                    </div>
                 ) : (
                     // ================================================================
                     // 설정 탭
@@ -387,6 +411,8 @@ export const App = () => {
                                 setBookmarks={setBookmarks}
                                 sidebarPosition={sidebarPosition}
                                 onChangeSidebarPosition={handleChangeSidebarPosition}
+                                language={language}
+                                onChangeLanguage={handleChangeLanguage}
                             />
                         </div>
                     </div>
@@ -404,7 +430,9 @@ export const App = () => {
                     menuItems={[
                         {
                             key: "rename",
-                            label: contextMenu.bookmarkId ? "북마크 이름 변경" : "폴더명 변경",
+                            label: contextMenu.bookmarkId
+                                ? ttt("contextMenu.renameBookmark")
+                                : ttt("contextMenu.renameFolder"),
                             onSelect: () =>
                                 handleRenameBookmark(contextMenu.folderId, contextMenu.bookmarkId),
                         },
@@ -413,14 +441,14 @@ export const App = () => {
                             ? [
                                   {
                                       key: "replace",
-                                      label: "현재 검색으로 대체",
+                                      label: ttt("contextMenu.replaceWithCurrentSearch"),
                                       onSelect: () => handleReplaceBookmarkUrl(),
                                   },
                               ]
                             : []),
                         {
                             key: "cancel",
-                            label: "닫기",
+                            label: ttt("common.close"),
                             onSelect: () => handleCloseContextMenu(),
                         },
                     ]}

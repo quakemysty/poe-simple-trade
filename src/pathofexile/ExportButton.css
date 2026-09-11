@@ -1,0 +1,35 @@
+/* ============================================================
+   POB Export 버튼 : 검색결과 아이템 행(.resultset .row .left)에 붙는다
+   ============================================================ */
+
+/* Export / PoeDB 버튼을 가로로 나란히. 칸이 좁으면 다음 줄로 넘긴다 */
+.pst-export-btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 10px;
+}
+
+.pst-export-btn {
+    height: 20px;
+
+    background-color: #393838;
+    border: 1px solid #393838;
+    border-radius: 4px;
+    color: #d4b572;
+
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* 버튼 위에 잠깐 뜨는 알림 */
+.pst-toast {
+    position: absolute;
+    z-index: 9999;
+
+    padding: 6px 12px;
+    background: #333;
+    border-radius: 4px;
+    color: #fff;
+}

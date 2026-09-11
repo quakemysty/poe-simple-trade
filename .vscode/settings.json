@@ -1,0 +1,10 @@
+{
+    "i18n-ally.localesPaths": ["src/locales"],
+    "i18n-ally.pathMatcher": "{locale}.json",
+    "i18n-ally.enabledParsers": ["json"],
+    "i18n-ally.keystyle": "flat",
+    "i18n-ally.sourceLanguage": "ko",
+    "i18n-ally.displayLanguage": "ko",
+    "i18n-ally.indent": 4,
+    "i18n-ally.theme.annotation": "rgba(180, 180, 180, 1)"
+}

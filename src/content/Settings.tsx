@@ -8,13 +8,21 @@ import {
     parseBookmarkData,
     saveSettings,
     type BookmarkData,
+    type Language,
     type SidebarPosition,
 } from "./storage";
-import { Util } from "../pathofexile/util";
+import { poeUtil } from "../pathofexile/poeUtil";
+import { ttt, type MessageKey } from "../i18n";
 
-const SIDEBAR_POSITIONS: { value: SidebarPosition; label: string }[] = [
-    { value: "left", label: "왼쪽" },
-    { value: "right", label: "오른쪽" },
+// 언어 이름은 현재 언어와 상관없이 각 언어 표기로 보여준다
+const LANGUAGES: { value: Language; label: string }[] = [
+    { value: "ko", label: "한국어" },
+    { value: "en", label: "English" },
+];
+
+const SIDEBAR_POSITIONS: { value: SidebarPosition; labelKey: MessageKey }[] = [
+    { value: "left", labelKey: "settings.sidebarPosition.left" },
+    { value: "right", labelKey: "settings.sidebarPosition.right" },
 ];
 
 type SettingFolderProps = {
@@ -49,6 +57,9 @@ type SettingsProps = {
     /* 사이드바 위치는 레이아웃에 영향을 주므로 App 이 계속 들고 있는다 */
     sidebarPosition: SidebarPosition;
     onChangeSidebarPosition: (position: SidebarPosition) => void;
+    /* 언어가 바뀌면 화면 전체 문구가 바뀌어야 하므로 App 이 들고 있는다 */
+    language: Language;
+    onChangeLanguage: (language: Language) => void;
 };
 
 type LeaguesResponse = {
@@ -63,6 +74,8 @@ export const Settings = ({
     setBookmarks,
     sidebarPosition,
     onChangeSidebarPosition,
+    language,
+    onChangeLanguage,
 }: SettingsProps) => {
     // 리그명
     const [leagueName, setLeagueName] = useState(() => loadSettings().leagueName);
@@ -88,7 +101,7 @@ export const Settings = ({
         try {
             const response: LeaguesResponse = await chrome.runtime.sendMessage({
                 action: "fetchLeagues",
-                gameType: Util.detectGameType(),
+                gameType: poeUtil.detectGameType(),
             });
 
             if (!response?.success) {
@@ -102,7 +115,7 @@ export const Settings = ({
             });
             setLeagueOptions(leagueNames);
         } catch (error) {
-            alert("리그 목록을 가져오지 못했습니다");
+            alert(ttt("settings.league.fetchFailed"));
             console.warn("[pst] 리그 목록을 가져오지 못했습니다.", error);
         } finally {
             setIsLoadingLeagues(false);
@@ -125,10 +138,10 @@ export const Settings = ({
 
         try {
             await navigator.clipboard.writeText(code);
-            window.alert("모든 북마크 코드를 클립보드에 복사했습니다.");
+            window.alert(ttt("settings.export.copied"));
         } catch {
             // 콘텐츠 스크립트에서 클립보드 접근이 막히는 경우가 있어 직접 복사할 수 있게 띄운다
-            window.prompt("클립보드 복사에 실패했습니다. 아래 코드를 직접 복사하세요.", code);
+            window.prompt(ttt("settings.export.copyFailed"), code);
         }
     };
 
@@ -138,7 +151,7 @@ export const Settings = ({
     const handleImportBookmarks = () => {
         const trimmed = importCode.trim();
         if (!trimmed) {
-            window.alert("불러올 북마크 코드를 입력하세요.");
+            window.alert(ttt("settings.import.empty"));
             return;
         }
 
@@ -146,17 +159,17 @@ export const Settings = ({
         try {
             raw = JSON.parse(trimmed);
         } catch {
-            window.alert("북마크 코드를 해석할 수 없습니다. 복사한 코드를 그대로 붙여넣으세요.");
+            window.alert(ttt("settings.import.invalidJson"));
             return;
         }
 
         const parsed = parseBookmarkData(raw);
         if (!parsed) {
-            window.alert("북마크 코드 형식이 올바르지 않습니다.");
+            window.alert(ttt("settings.import.invalidFormat"));
             return;
         }
 
-        if (!window.confirm("현재 북마크를 모두 덮어씁니다. 계속하시겠습니까?")) {
+        if (!window.confirm(ttt("settings.import.confirmOverwrite"))) {
             return;
         }
 
@@ -169,15 +182,36 @@ export const Settings = ({
     return (
         <ul className="pst-settings-list">
             {/* ============================================================ */}
+            {/* Language                                                    */}
+            {/* ============================================================ */}
+            <SettingFolder name={ttt("settings.language.title")}>
+                {/* 화살표(::after)를 그리기 위한 껍데기 */}
+                <span className="pst-select-wrap">
+                    <select
+                        className="pst-select"
+                        value={language}
+                        aria-label={ttt("settings.language.title")}
+                        onChange={(event) => onChangeLanguage(event.target.value as Language)}
+                    >
+                        {LANGUAGES.map((option) => (
+                            <option key={option.value} value={option.value}>
+                                {option.label}
+                            </option>
+                        ))}
+                    </select>
+                </span>
+            </SettingFolder>
+
+            {/* ============================================================ */}
             {/* League                                                      */}
             {/* ============================================================ */}
-            <SettingFolder name="League">
+            <SettingFolder name={ttt("settings.league.title")}>
                 <input
                     type="text"
                     className="pst-input"
                     value={leagueName}
-                    placeholder="리그 조회가 안될경우 직접 입력"
-                    aria-label="리그명"
+                    placeholder={ttt("settings.league.placeholder")}
+                    aria-label={ttt("settings.league.nameLabel")}
                     onChange={(event) => setLeagueName(event.target.value.trim())}
                 />
                 {/* 목록과 조회 버튼을 한 줄에 놓는다 */}
@@ -187,10 +221,10 @@ export const Settings = ({
                         <select
                             className="pst-select"
                             value={leagueOptions.includes(leagueName) ? leagueName : ""}
-                            aria-label="리그 목록"
+                            aria-label={ttt("settings.league.listLabel")}
                             onChange={(event) => setLeagueName(event.target.value)}
                         >
-                            <option value="">리그를 조회 후 선택하세요.</option>
+                            <option value="">{ttt("settings.league.selectPlaceholder")}</option>
                             {leagueOptions.map((league) => (
                                 <option key={league} value={league}>
                                     {league}
@@ -204,7 +238,9 @@ export const Settings = ({
                         disabled={isLoadingLeagues}
                         onClick={handleFetchLeagues}
                     >
-                        {isLoadingLeagues ? "조회 중" : "조회"}
+                        {isLoadingLeagues
+                            ? ttt("settings.league.fetching")
+                            : ttt("settings.league.fetch")}
                     </button>
                 </div>
             </SettingFolder>
@@ -212,7 +248,7 @@ export const Settings = ({
             {/* ============================================================ */}
             {/* 검색 시 ~ 자동 입력 설정                                     
             {/* ============================================================ */}
-            <SettingFolder name="자동 완성 설정">
+            <SettingFolder name={ttt("settings.autoComplete.title")}>
                 <label className="pst-switch">
                     <input
                         type="checkbox"
@@ -223,15 +259,19 @@ export const Settings = ({
                     <span className="pst-switch-track" aria-hidden="true">
                         <span className="pst-switch-thumb" />
                     </span>
-                    <span>검색어 입력 시 자동으로 ~ 붙이기</span>
+                    <span>{ttt("settings.autoComplete.appendTilde")}</span>
                 </label>
             </SettingFolder>
 
             {/* ============================================================ */}
             {/* 사이드바 위치 설정                                          */}
             {/* ============================================================ */}
-            <SettingFolder name="사이드바 위치">
-                <div className="pst-radio-group" role="radiogroup" aria-label="사이드바 위치">
+            <SettingFolder name={ttt("settings.sidebarPosition.title")}>
+                <div
+                    className="pst-radio-group"
+                    role="radiogroup"
+                    aria-label={ttt("settings.sidebarPosition.title")}
+                >
                     {SIDEBAR_POSITIONS.map((option) => (
                         <label key={option.value} className="pst-radio">
                             <input
@@ -241,7 +281,7 @@ export const Settings = ({
                                 checked={sidebarPosition === option.value}
                                 onChange={() => onChangeSidebarPosition(option.value)}
                             />
-                            <span>{option.label}</span>
+                            <span>{ttt(option.labelKey)}</span>
                         </label>
                     ))}
                 </div>
@@ -250,26 +290,26 @@ export const Settings = ({
             {/* ============================================================ */}
             {/* 전체 북마크 내보내기                                        */}
             {/* ============================================================ */}
-            <SettingFolder name="전체 북마크 내보내기">
+            <SettingFolder name={ttt("settings.export.title")}>
                 <button type="button" className="pst-settings-btn" onClick={handleExportBookmarks}>
-                    모든 북마크 코드 복사
+                    {ttt("settings.export.button")}
                 </button>
             </SettingFolder>
 
             {/* ============================================================ */}
             {/* 북마크 불러오기                                             */}
             {/* ============================================================ */}
-            <SettingFolder name="북마크 불러오기">
+            <SettingFolder name={ttt("settings.import.title")}>
                 <textarea
                     className="pst-textarea"
                     rows={6}
                     value={importCode}
-                    placeholder="북마크 코드를 붙여넣으세요."
-                    aria-label="북마크 코드"
+                    placeholder={ttt("settings.import.placeholder")}
+                    aria-label={ttt("settings.import.codeLabel")}
                     onChange={(event) => setImportCode(event.target.value)}
                 />
                 <button type="button" className="pst-settings-btn" onClick={handleImportBookmarks}>
-                    북마크 불러오기
+                    {ttt("settings.import.button")}
                 </button>
             </SettingFolder>
         </ul>

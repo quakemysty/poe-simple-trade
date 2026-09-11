@@ -1,0 +1,12 @@
+# src/i18n.ts 의 t("키") 호출을 i18n Ally 가 인식하도록 하는 설정
+languageIds:
+    - javascript
+    - typescript
+    - javascriptreact
+    - typescriptreact
+
+usageMatchRegex:
+    - "[^\\w\\d]ttt\\(['\"`]({key})['\"`]"
+
+# 내장 프레임워크(react-i18next 등) 감지는 끈다
+monopoly: true

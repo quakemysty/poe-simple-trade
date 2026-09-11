@@ -1,0 +1,1526 @@
+[
+    {
+        "label": "가속의 에센스",
+        "value": "Essence_of_Haste",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "갉힌 갈비뼈",
+        "value": "Gnawed_Rib",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "갉힌 빗장뼈",
+        "value": "Gnawed_Collarbone",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "갉힌 턱뼈",
+        "value": "Gnawed_Jawbone",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "감정 주문서",
+        "value": "Scroll_of_Wisdom",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "갑각 기폭제",
+        "value": "Carapace_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "강탈자 기폭제",
+        "value": "Reaver_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "강화의 에센스",
+        "value": "Essence_of_Enhancement",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "건축가의 오브",
+        "value": "Architects_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "검은 낫 유물",
+        "value": "Black_Scythe_Artifact",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "결정화된 타락",
+        "value": "Crystallised_Corruption",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "경악의 에센스",
+        "value": "Essence_of_Horror",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 갈비뼈",
+        "value": "Ancient_Rib",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 농축된 액체 고립",
+        "value": "Ancient_Concentrated_Liquid_Isolation",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 농축된 액체 고통",
+        "value": "Ancient_Concentrated_Liquid_Suffering",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 농축된 액체 두려움",
+        "value": "Ancient_Concentrated_Liquid_Fear",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 빗장뼈",
+        "value": "Ancient_Collarbone",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 액체 선망",
+        "value": "Ancient_Liquid_Envy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 액체 절망",
+        "value": "Ancient_Liquid_Despair",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 액체 집착",
+        "value": "Ancient_Liquid_Paranoia",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 액체 혐오",
+        "value": "Ancient_Liquid_Disgust",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 위력적인 액체 경멸",
+        "value": "Ancient_Potent_Liquid_Contempt",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 위력적인 액체 우울",
+        "value": "Ancient_Potent_Liquid_Melancholy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 위력적인 액체 흉포함",
+        "value": "Ancient_Potent_Liquid_Ferocity",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 주입기",
+        "value": "Ancient_Infuser",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 턱뼈",
+        "value": "Ancient_Jawbone",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 희석된 액체 죄책감",
+        "value": "Ancient_Diluted_Liquid_Guilt",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 희석된 액체 진노",
+        "value": "Ancient_Diluted_Liquid_Ire",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "고대 희석된 액체 탐욕",
+        "value": "Ancient_Diluted_Liquid_Greed",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "공허 유동체",
+        "value": "Void_Flux",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "광기의 에센스",
+        "value": "Essence_of_Insanity",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "괴사의 기폭제",
+        "value": "Necrotic_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "군왕의 합금",
+        "value": "Sovereign_Alloy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "균열 파편",
+        "value": "Breach_Splinter",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "균열의 에센스",
+        "value": "Essence_of_the_Breach",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "기민성의 에센스",
+        "value": "Essence_of_Alacrity",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "기회의 오브",
+        "value": "Orb_of_Chance",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "기회의 파편",
+        "value": "Chance_Shard",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "끊어진 원 유물",
+        "value": "Broken_Circle_Artifact",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "난해한 열쇠",
+        "value": "Cryptic_Key",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "농축된 액체 고립",
+        "value": "Concentrated_Liquid_Isolation",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "농축된 액체 고통",
+        "value": "Concentrated_Liquid_Suffering",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "농축된 액체 두려움",
+        "value": "Concentrated_Liquid_Fear",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "달리는 기폭제",
+        "value": "Skittering_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "대장장이의 숫돌",
+        "value": "Blacksmiths_Whetstone",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "덕망 있는 별빛 광석",
+        "value": "Venerable_Starlit_Ore",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "도둑의 증표",
+        "value": "Rogues_Marker",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "뒤바뀐 빗장뼈",
+        "value": "Altered_Collarbone",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "룬 결속사의 합금",
+        "value": "The_Runebinders_Alloy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "룬 아버지의 합금",
+        "value": "The_Runefathers_Alloy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "룬 파편",
+        "value": "Runic_Splinter",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "룬 합금",
+        "value": "Runic_Alloy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마모의 에센스",
+        "value": "Essence_of_Abrasion",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (10레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_10%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (11레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_11%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (12레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_12%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (13레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_13%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (14레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_14%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (15레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_15%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (16레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_16%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (17레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_17%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (18레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_18%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (19레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_19%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (20레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_20%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (5레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_5%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (6레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_6%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (7레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_7%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (8레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_8%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마석학 유동체 (9레벨)",
+        "value": "Thaumaturgic_Flux_%28Level_9%29",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "마술의 에센스",
+        "value": "Essence_of_Sorcery",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "맹렬한 유동체",
+        "value": "Blazing_Flux",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "메드베드의 원 문양",
+        "value": "Medveds_Crest_of_the_Circle",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "무한의 에센스",
+        "value": "Essence_of_the_Infinite",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "바알 대장장이의 주입기",
+        "value": "Vaal_Blacksmiths_Infuser",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "바알 방어구 장인의 주입기",
+        "value": "Vaal_Armourers_Infuser",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "바알 신비학자의 주입기",
+        "value": "Vaal_Arcanists_Infuser",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "바알 오브",
+        "value": "Vaal_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "바알 촉진시키는 주입기",
+        "value": "Vaal_Catalysing_Infuser",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "바알 함양 오브",
+        "value": "Vaal_Cultivation_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "발작의 에센스",
+        "value": "Essence_of_Hysteria",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "방어구 장인의 고철",
+        "value": "Armourers_Scrap",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "베리시움",
+        "value": "Verisium",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "별빛 광석",
+        "value": "Starlit_Ore",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "보라나의 낫 문양",
+        "value": "Voranas_Crest_of_the_Scythe",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "보존된 갈비뼈",
+        "value": "Preserved_Rib",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "보존된 두개골",
+        "value": "Preserved_Cranium",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "보존된 등골",
+        "value": "Preserved_Vertebrae",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "보존된 빗장뼈",
+        "value": "Preserved_Collarbone",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "보존된 턱뼈",
+        "value": "Preserved_Jawbone",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "보호의 합금",
+        "value": "Protective_Alloy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "복제된 영토 파편",
+        "value": "Simulacrum_Splinter",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "분광 합금",
+        "value": "Prismatic_Alloy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "분열의 오브",
+        "value": "Fracturing_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 가속의 에센스",
+        "value": "Greater_Essence_of_Haste",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 강화의 에센스",
+        "value": "Greater_Essence_of_Enhancement",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 기민성의 에센스",
+        "value": "Greater_Essence_of_Alacrity",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 마모의 에센스",
+        "value": "Greater_Essence_of_Abrasion",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 마술의 에센스",
+        "value": "Greater_Essence_of_Sorcery",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 무한의 에센스",
+        "value": "Greater_Essence_of_the_Infinite",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 얼음의 에센스",
+        "value": "Greater_Essence_of_Ice",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 엑잘티드 오브",
+        "value": "Greater_Exalted_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 육신의 에센스",
+        "value": "Greater_Essence_of_the_Body",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 전기의 에센스",
+        "value": "Greater_Essence_of_Electricity",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 전투의 에센스",
+        "value": "Greater_Essence_of_Battle",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 절연의 에센스",
+        "value": "Greater_Essence_of_Insulation",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 접지의 에센스",
+        "value": "Greater_Essence_of_Grounding",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 정신의 에센스",
+        "value": "Greater_Essence_of_the_Mind",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 제왕의 오브",
+        "value": "Greater_Regal_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 쥬얼러 오브",
+        "value": "Greater_Jewellers_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 지휘의 에센스",
+        "value": "Greater_Essence_of_Command",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 진화의 오브",
+        "value": "Greater_Orb_of_Transmutation",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 추구의 에센스",
+        "value": "Greater_Essence_of_Seeking",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 카오스 오브",
+        "value": "Greater_Chaos_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 폐허의 에센스",
+        "value": "Greater_Essence_of_Ruin",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 풍요의 에센스",
+        "value": "Greater_Essence_of_Opulence",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 해동의 에센스",
+        "value": "Greater_Essence_of_Thawing",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 화염의 에센스",
+        "value": "Greater_Essence_of_Flames",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "상위 확장의 오브",
+        "value": "Greater_Orb_of_Augmentation",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "성배단 유물",
+        "value": "Order_Artifact",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "세공사의 프리즘",
+        "value": "Gemcutters_Prism",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "소멸의 오브",
+        "value": "Orb_of_Annulment",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "쇳소리 기폭제",
+        "value": "Sibilant_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "수호하는 별빛 광석",
+        "value": "Warding_Starlit_Ore",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "숙련공의 오브",
+        "value": "Artificers_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "숙련공의 파편",
+        "value": "Artificers_Shard",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "신경 기폭제",
+        "value": "Neural_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "신비학자의 식각기",
+        "value": "Arcanists_Etcher",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "신비한 합금",
+        "value": "Mystic_Alloy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "신성한 오브",
+        "value": "Divine_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "심연의 에센스",
+        "value": "Essence_of_the_Abyss",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "액체 베리시움",
+        "value": "Liquid_Verisium",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "액체 선망",
+        "value": "Liquid_Envy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "액체 절망",
+        "value": "Liquid_Despair",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "액체 집착",
+        "value": "Liquid_Paranoia",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "액체 혐오",
+        "value": "Liquid_Disgust",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "야오맥의 희생의 오브",
+        "value": "Yaomacs_Orb_of_Sacrifice",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "얼음의 에센스",
+        "value": "Essence_of_Ice",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "에쉬의 기폭제",
+        "value": "Eshs_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "엑잘티드 오브",
+        "value": "Exalted_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "연금술의 오브",
+        "value": "Orb_of_Alchemy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "오싹한 유동체",
+        "value": "Chilling_Flux",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "올로스의 태양 문양",
+        "value": "Olroths_Crest_of_the_Sun",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 가속의 에센스",
+        "value": "Perfect_Essence_of_Haste",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 강화의 에센스",
+        "value": "Perfect_Essence_of_Enhancement",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 기민성의 에센스",
+        "value": "Perfect_Essence_of_Alacrity",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 마모의 에센스",
+        "value": "Perfect_Essence_of_Abrasion",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 마술의 에센스",
+        "value": "Perfect_Essence_of_Sorcery",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 무한의 에센스",
+        "value": "Perfect_Essence_of_the_Infinite",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 얼음의 에센스",
+        "value": "Perfect_Essence_of_Ice",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 엑잘티드 오브",
+        "value": "Perfect_Exalted_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 유동체",
+        "value": "Perfect_Flux",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 육신의 에센스",
+        "value": "Perfect_Essence_of_the_Body",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 전기의 에센스",
+        "value": "Perfect_Essence_of_Electricity",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 전투의 에센스",
+        "value": "Perfect_Essence_of_Battle",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 절연의 에센스",
+        "value": "Perfect_Essence_of_Insulation",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 접지의 에센스",
+        "value": "Perfect_Essence_of_Grounding",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 정신의 에센스",
+        "value": "Perfect_Essence_of_the_Mind",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 제왕의 오브",
+        "value": "Perfect_Regal_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 쥬얼러 오브",
+        "value": "Perfect_Jewellers_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 지휘의 에센스",
+        "value": "Perfect_Essence_of_Command",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 진화의 오브",
+        "value": "Perfect_Orb_of_Transmutation",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 추구의 에센스",
+        "value": "Perfect_Essence_of_Seeking",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 카오스 오브",
+        "value": "Perfect_Chaos_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 폐허의 에센스",
+        "value": "Perfect_Essence_of_Ruin",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 풍요의 에센스",
+        "value": "Perfect_Essence_of_Opulence",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 해동의 에센스",
+        "value": "Perfect_Essence_of_Thawing",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 화염의 에센스",
+        "value": "Perfect_Essence_of_Flames",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "완벽한 확장의 오브",
+        "value": "Perfect_Orb_of_Augmentation",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "우트레드의 성배 문양",
+        "value": "Uhtreds_Crest_of_the_Chalice",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "울네톨의 기폭제",
+        "value": "Uul-Netols_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "위력적인 액체 경멸",
+        "value": "Potent_Liquid_Contempt",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "위력적인 액체 우울",
+        "value": "Potent_Liquid_Melancholy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "위력적인 액체 흉포함",
+        "value": "Potent_Liquid_Ferocity",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "유굴의 희생의 오브",
+        "value": "Yuguls_Orb_of_Sacrifice",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "유리직공의 방울",
+        "value": "Glassblowers_Bauble",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "육신의 에센스",
+        "value": "Essence_of_the_Body",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "육체 기폭제",
+        "value": "Flesh_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "재빠른 합금",
+        "value": "Swift_Alloy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "적응형 기폭제",
+        "value": "Adaptive_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "적응형 합금",
+        "value": "Adaptive_Alloy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "전기의 에센스",
+        "value": "Essence_of_Electricity",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "전투의 에센스",
+        "value": "Essence_of_Battle",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "절연의 에센스",
+        "value": "Essence_of_Insulation",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "접지의 에센스",
+        "value": "Essence_of_Grounding",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "정신의 에센스",
+        "value": "Essence_of_the_Mind",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제련된 갑각 기폭제",
+        "value": "Refined_Carapace_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제련된 강탈자 기폭제",
+        "value": "Refined_Reaver_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제련된 괴사의 기폭제",
+        "value": "Refined_Necrotic_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제련된 달리는 기폭제",
+        "value": "Refined_Skittering_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제련된 쇳소리 기폭제",
+        "value": "Refined_Sibilant_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제련된 신경 기폭제",
+        "value": "Refined_Neural_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제련된 에쉬의 기폭제",
+        "value": "Refined_Eshs_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제련된 울네톨의 기폭제",
+        "value": "Refined_Uul-Netols_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제련된 육체 기폭제",
+        "value": "Refined_Flesh_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제련된 적응형 기폭제",
+        "value": "Refined_Adaptive_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제련된 조프의 기폭제",
+        "value": "Refined_Xophs_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제련된 차율라의 기폭제",
+        "value": "Refined_Chayulas_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제련된 툴의 기폭제",
+        "value": "Refined_Tuls_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제왕의 오브",
+        "value": "Regal_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "제왕의 파편",
+        "value": "Regal_Shard",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "조프의 기폭제",
+        "value": "Xophs_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "존경받는 별빛 광석",
+        "value": "Revered_Starlit_Ore",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "지휘의 에센스",
+        "value": "Essence_of_Command",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "진실한 별빛 광석",
+        "value": "Veridical_Starlit_Ore",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "진화의 오브",
+        "value": "Orb_of_Transmutation",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "진화의 파편",
+        "value": "Transmutation_Shard",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "차율라의 기폭제",
+        "value": "Chayulas_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "천공의 합금",
+        "value": "Celestial_Alloy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "초월의 합금",
+        "value": "Transcendent_Alloy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "추구의 에센스",
+        "value": "Essence_of_Seeking",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "추출의 오브",
+        "value": "Orb_of_Extraction",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "치직대는 유동체",
+        "value": "Crackling_Flux",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "카마사의 희생의 오브",
+        "value": "Kamasas_Orb_of_Sacrifice",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "카오스 오브",
+        "value": "Chaos_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "칼란드라의 거울",
+        "value": "Mirror_of_Kalandra",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "코펙의 희생의 오브",
+        "value": "Kopecs_Orb_of_Sacrifice",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "탄원 파편",
+        "value": "Petition_Splinter",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "태양 유물",
+        "value": "Sun_Artifact",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "툴의 기폭제",
+        "value": "Tuls_Catalyst",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "특이한 주화",
+        "value": "Exotic_Coinage",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "특출난 베리시움",
+        "value": "Exceptional_Verisium",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "팽창하는 합금",
+        "value": "Expansive_Alloy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "폐허의 에센스",
+        "value": "Essence_of_Ruin",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "풍요의 에센스",
+        "value": "Essence_of_Opulence",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 가속의 에센스",
+        "value": "Lesser_Essence_of_Haste",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 강화의 에센스",
+        "value": "Lesser_Essence_of_Enhancement",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 기민성의 에센스",
+        "value": "Lesser_Essence_of_Alacrity",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 마모의 에센스",
+        "value": "Lesser_Essence_of_Abrasion",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 마술의 에센스",
+        "value": "Lesser_Essence_of_Sorcery",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 무한의 에센스",
+        "value": "Lesser_Essence_of_the_Infinite",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 얼음의 에센스",
+        "value": "Lesser_Essence_of_Ice",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 육신의 에센스",
+        "value": "Lesser_Essence_of_the_Body",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 전기의 에센스",
+        "value": "Lesser_Essence_of_Electricity",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 전투의 에센스",
+        "value": "Lesser_Essence_of_Battle",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 절연의 에센스",
+        "value": "Lesser_Essence_of_Insulation",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 접지의 에센스",
+        "value": "Lesser_Essence_of_Grounding",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 정신의 에센스",
+        "value": "Lesser_Essence_of_the_Mind",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 쥬얼러 오브",
+        "value": "Lesser_Jewellers_Orb",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 지휘의 에센스",
+        "value": "Lesser_Essence_of_Command",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 추구의 에센스",
+        "value": "Lesser_Essence_of_Seeking",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 폐허의 에센스",
+        "value": "Lesser_Essence_of_Ruin",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 풍요의 에센스",
+        "value": "Lesser_Essence_of_Opulence",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 해동의 에센스",
+        "value": "Lesser_Essence_of_Thawing",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "하위 화염의 에센스",
+        "value": "Lesser_Essence_of_Flames",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "해동의 에센스",
+        "value": "Essence_of_Thawing",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "핵 불안정화기",
+        "value": "Core_Destabiliser",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "화염의 에센스",
+        "value": "Essence_of_Flames",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "확장의 오브",
+        "value": "Orb_of_Augmentation",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "회오리바람 합금",
+        "value": "Cyclonic_Alloy",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "희석된 액체 죄책감",
+        "value": "Diluted_Liquid_Guilt",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "희석된 액체 진노",
+        "value": "Diluted_Liquid_Ire",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "희석된 액체 탐욕",
+        "value": "Diluted_Liquid_Greed",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "흰 로아 깃털",
+        "value": "Albino_Rhoa_Feather",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    },
+    {
+        "label": "히네코라의 머리카락",
+        "value": "Hinekoras_Lock",
+        "desc": "중첩 가능 화폐",
+        "class": "item_currency"
+    }
+]

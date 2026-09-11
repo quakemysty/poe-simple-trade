@@ -13,12 +13,12 @@
         "https://www.pathofexile.com/trade*",
         "https://poe.kakaogames.com/trade*",
         "https://www.pathofexile.com/api/*",
-        "https://poe.ninja/api/*"
+        "https://poe.ninja/*"
     ],
     "content_scripts": [
         {
             "matches": ["https://poe.kakaogames.com/trade*", "https://www.pathofexile.com/trade*"],
-            "js": ["src/content/content.tsx", "src/pathofexile/makeCopyButton_for_POB.js"]
+            "js": ["src/content/content.tsx"]
         }
     ]
 }

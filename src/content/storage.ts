@@ -1,14 +1,17 @@
+import { poeUtil } from "../pathofexile/poeUtil";
 import type { Bookmark, BookmarkMap } from "./BookmarkItem";
 import type { Folder } from "./FolderItem";
-import { Util } from "../pathofexile/util";
+import type { NinjaOverview } from "./PoeNinjaCurrency";
 
 /**
  * Storage 저장 키
  */
-const BOOKMARKS_KEY = "pst." + Util.detectGameType() + ".bookmarks";
-const SETTINGS_KEY = "pst." + Util.detectGameType() + ".settings";
+const BOOKMARKS_KEY = "pst." + poeUtil.detectGameType() + ".bookmarks";
+const SETTINGS_KEY = "pst." + poeUtil.detectGameType() + ".settings";
+const CURRENCY_KEY = "pst." + poeUtil.detectGameType() + ".currency";
 
 export type SidebarPosition = "left" | "right";
+export type Language = "ko" | "en";
 
 /** 저장 / 내보내기 / 불러오기가 모두 쓰는 북마크 구조 */
 export type BookmarkData = {
@@ -17,19 +20,31 @@ export type BookmarkData = {
 };
 
 export type AppSettings = {
+    /** 화면 표시 언어 */
+    language: Language;
     /** 설정 탭에서 고르거나 직접 입력한 리그명 */
     leagueName: string;
     autoAppendTilde: boolean;
     sidebarPosition: SidebarPosition;
     /** 플로팅 버튼으로 사이드바를 접어 둔 상태 */
     isSidebarHidden: boolean;
+    /** 시세 탭에서 poe.ninja 를 마지막으로 조회한 시각(ms). 조회한 적 없으면 0 */
+    currencyRefreshedAt: number;
+};
+
+/** 시세 탭 조회 결과. 조회 시각은 AppSettings.currencyRefreshedAt */
+export type CurrencyCache = {
+    leagueName: string;
+    overview: NinjaOverview;
 };
 
 const DEFAULT_SETTINGS: AppSettings = {
+    language: "ko",
     leagueName: "",
     autoAppendTilde: true,
     sidebarPosition: "left",
     isSidebarHidden: false,
+    currencyRefreshedAt: 0,
 };
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
@@ -113,6 +128,10 @@ export const loadSettings = (): AppSettings => {
     if (!isRecord(stored)) return DEFAULT_SETTINGS;
 
     return {
+        language:
+            stored.language === "ko" || stored.language === "en"
+                ? stored.language
+                : DEFAULT_SETTINGS.language,
         leagueName:
             typeof stored.leagueName === "string" ? stored.leagueName : DEFAULT_SETTINGS.leagueName,
         autoAppendTilde:
@@ -127,6 +146,10 @@ export const loadSettings = (): AppSettings => {
             typeof stored.isSidebarHidden === "boolean"
                 ? stored.isSidebarHidden
                 : DEFAULT_SETTINGS.isSidebarHidden,
+        currencyRefreshedAt:
+            typeof stored.currencyRefreshedAt === "number"
+                ? stored.currencyRefreshedAt
+                : DEFAULT_SETTINGS.currencyRefreshedAt,
     };
 };
 
@@ -135,6 +158,28 @@ export const loadSettings = (): AppSettings => {
  */
 export const saveSettings = (patch: Partial<AppSettings>) => {
     writeToStorage(SETTINGS_KEY, { ...loadSettings(), ...patch });
+};
+
+/** 저장해 둔 시세 조회 결과. 없거나 형식이 깨졌으면 undefined */
+export const loadCurrencyCache = (): CurrencyCache | undefined => {
+    const stored = cache.get(CURRENCY_KEY);
+    if (!isRecord(stored) || typeof stored.leagueName !== "string") return undefined;
+
+    const { overview } = stored;
+    if (
+        !isRecord(overview) ||
+        !isRecord(overview.core) ||
+        !Array.isArray(overview.lines) ||
+        !Array.isArray(overview.items)
+    ) {
+        return undefined;
+    }
+
+    return stored as CurrencyCache;
+};
+
+export const saveCurrencyCache = (data: CurrencyCache) => {
+    writeToStorage(CURRENCY_KEY, data);
 };
 
 /**

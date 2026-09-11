@@ -2,7 +2,8 @@ import type { MouseEvent } from "react";
 import { CollisionPriority } from "@dnd-kit/abstract";
 import { useSortable } from "@dnd-kit/react/sortable";
 import { BookmarkItem, type Bookmark } from "./BookmarkItem";
-import { Util } from "../pathofexile/util";
+import { poeUtil } from "../pathofexile/poeUtil";
+import { ttt } from "../i18n";
 
 export type Folder = {
     id: string;
@@ -38,9 +39,9 @@ export const FolderItem = ({
      * [Click Event] 북마크 추가 버튼 클릭 시
      */
     const handleNewBookmark = () => {
-        const label = Util.getItemSearchInputBoxValue();
+        const label = poeUtil.getItemSearchInputBoxValue();
 
-        const url = Util.getItemSearchConditionUrl();
+        const url = poeUtil.getItemSearchConditionUrl();
 
         onNewBookmark(folder.id, label, url);
     };
@@ -78,7 +79,7 @@ export const FolderItem = ({
                 <span
                     ref={handleRef}
                     className="pst-drag-handle"
-                    title="끌어서 순서 변경"
+                    title={ttt("common.dragToReorder")}
                     aria-hidden="true"
                     onClick={(event) => event.stopPropagation()}
                 >
@@ -97,8 +98,8 @@ export const FolderItem = ({
                 <button
                     type="button"
                     className="pst-btn-bookmark"
-                    title="북마크 추가"
-                    aria-label="북마크 추가"
+                    title={ttt("folder.addBookmark")}
+                    aria-label={ttt("folder.addBookmark")}
                     onClick={(event) => {
                         event.stopPropagation();
                         handleNewBookmark();
@@ -109,8 +110,8 @@ export const FolderItem = ({
                 <button
                     type="button"
                     className="pst-btn-bookmark"
-                    title="옵션"
-                    aria-label="옵션"
+                    title={ttt("common.options")}
+                    aria-label={ttt("common.options")}
                     onClick={(event) => {
                         event.stopPropagation();
                         onPopupOption(event, folder.id);
@@ -121,8 +122,8 @@ export const FolderItem = ({
                 <button
                     type="button"
                     className="pst-btn-bookmark pst-btn-delete"
-                    title="폴더 삭제"
-                    aria-label="폴더 삭제"
+                    title={ttt("folder.delete")}
+                    aria-label={ttt("folder.delete")}
                     onClick={(event) => {
                         event.stopPropagation();
                         onDeleteFolder(folder.id);

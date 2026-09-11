@@ -1,0 +1,75 @@
+{
+    "folders": [
+        {
+            "id": "folder-1788944402114",
+            "name": "유니크",
+            "gameType": "poe1",
+            "expanded": true
+        },
+        {
+            "id": "folder-1788960946475",
+            "name": "방어구",
+            "gameType": "poe1",
+            "expanded": true
+        },
+        {
+            "id": "folder-1788960850308",
+            "name": "젬",
+            "gameType": "poe1",
+            "expanded": true
+        }
+    ],
+    "bookmarks": {
+        "folder-1788944402114": [
+            {
+                "id": "bookmark-1788956335982",
+                "label": "마법사의 피",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSer284_WmqW-a1ryZO0Ph7ZQ9SjpKJZUFYJk1W15t3PBm1haFt9M7Xi9b83ruAiUdsLHFSlbR1TBliXkpSjpKaZk5JalFIInY2thaAGszbg9-AAAA"
+            },
+            {
+                "id": "bookmark-1788956341992",
+                "label": "헤드헌터",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSejt9yevJc95O73nbskFJR6mksgAk-mpDw5vFexXeTu94vWzN67kLlHTA5hUrWUVXw9Qk5qUo6SilZeaUpBaBJGJrY2sBQ68lNXcAAAA"
+            },
+            {
+                "id": "bookmark-1788959721768",
+                "label": "결정화된 전지력",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSerVpw5sFU9_OnPJ6whyFNwta3ixveL1gqZKOUkllAUj-zYwlr7s733QtUXi9auWrjTvezN2ipAM2vFjJKroapiwxL0VJRyktM6cktQgkEVsbWwsAU7UPnoQAAAA"
+            },
+            {
+                "id": "bookmark-1788959733806",
+                "label": "히네코라의 통찰력",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VHKS8xNVbJSejuv43XLkjd7p7yeu-fN3BkKb9u2vtmw4fWCpQqvV614s3DD20kdSjpKJZUFIMVvZix53d35pmuJwutVK19t3PFm7hYlHbBNxUpW0dUwZYl5KUo6SmmZOSWpRSCJ2NrYWgCmAZCQkQAAAA"
+            }
+        ],
+        "folder-1788960850308": [
+            {
+                "id": "bookmark-1788960853289",
+                "label": "지면 분쇄",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VEqqSxIVbJSerO84fXKLQqvt7W8aW9R0gFrK1ayiq6GKUjMS1HSUUrLzClJLQJJxNbG1gIA74MBYV4AAAA"
+            },
+            {
+                "id": "bookmark-1788960860092",
+                "label": "번개 화살",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VEqqSxIVbJSer2p49WGOQpvZ05507RFSQesrVjJKroapiAxL0VJRyktM6cktQgkEVsbWwsA1WMPxV4AAAA"
+            },
+            {
+                "id": "bookmark-1788960917760",
+                "label": "고드름 지뢰",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VEqqSxIVbJSerV5wevJc14va1F4s7zh9aINSjpgncVKVtHVMDWJeSlKOkppmTklqUUgidja2FoA-ZVGUWEAAAA"
+            },
+            {
+                "id": "bookmark-1788960935662",
+                "label": "얼음 덫",
+                "url": "H4sIAAAAAAAACqtWKi5JLCktVrKqVsovKMnMz1OyUipOTS4tSkzKSVWq1VEqqSxIVbJSejNtz5u5PQqve1cr6YD1FCtZRVfDZBPzUpR0lNIyc0pSi0ASsbWxtQDrAurEWwAAAA"
+            }
+        ],
+        "folder-1788960946475": [
+            {
+                "id": "bookmark-1788961011923",
+                "label": "ES 갑옷",
+                "url": "H4sIAAAAAAAACnWNsQrDMAxE_-VmU1Lo5F8pobiu2hoSO0jyEIz-PSTt4A7VIPR0x12DaNAq8A1l0VQyPIRi5XCfCOYOXeCvDbouBI-QH3B4pkmJd2G0scOP7dZxd8ag9Cq8_rQFnkvlU3yTKMzMfT9_MujYc8rw58sw2D4bNLXG0cYAAAA"
+            }
+        ]
+    }
+}

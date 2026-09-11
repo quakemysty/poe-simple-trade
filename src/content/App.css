@@ -605,7 +605,7 @@ body.pst-page-shift.pst-page-shift-right {
    북마크 목록과 같은 방식으로 위쪽 폴더 행과 테두리를 한 줄로 공유한다. */
 .pst-settings-body {
     margin-top: -1px;
-    padding: 15px 10px;
+    padding: 10px 10px;
 
     border: 1px solid var(--pst-border);
     border-radius: 2px;
@@ -623,6 +623,7 @@ body.pst-page-shift.pst-page-shift-right {
     gap: 8px;
     font-size: 13px;
     cursor: pointer;
+    margin: 0;
 }
 
 /* 실제 checkbox 는 감추고 접근성/키보드 조작만 담당시킨다 */

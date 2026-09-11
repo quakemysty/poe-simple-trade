@@ -1,7 +1,8 @@
 import { type MouseEvent } from "react";
 import { useSortable } from "@dnd-kit/react/sortable";
 import { loadSettings } from "./storage";
-import { Util } from "../pathofexile/util";
+import { poeUtil } from "../pathofexile/poeUtil";
+import { ttt } from "../i18n";
 
 export type Bookmark = {
     id: string;
@@ -44,7 +45,7 @@ export const BookmarkItem = ({
 
     const leagueName = loadSettings().leagueName;
     const searchUrl =
-        leagueName && bookmark.url ? Util.getItemSearchUrl(bookmark.url, leagueName) : "";
+        leagueName && bookmark.url ? poeUtil.getItemSearchUrl(bookmark.url, leagueName) : "";
 
     /**
      * [Click Event] 북마크 클릭
@@ -52,13 +53,13 @@ export const BookmarkItem = ({
     const handleBookmarkClick = (event: MouseEvent<HTMLAnchorElement>) => {
         if (!leagueName) {
             event.preventDefault();
-            alert("세팅에서 League 를 설정하세요");
+            alert(ttt("bookmark.leagueNotSet"));
             return;
         }
 
         if (!bookmark.url) {
             event.preventDefault();
-            alert("해당 북마크 URL 이 비었습니다");
+            alert(ttt("bookmark.emptyUrl"));
         }
     };
 
@@ -73,7 +74,7 @@ export const BookmarkItem = ({
             <span
                 ref={handleRef}
                 className="pst-drag-handle"
-                title="끌어서 순서 변경"
+                title={ttt("common.dragToReorder")}
                 aria-hidden="true"
             >
                 ⠿
@@ -91,8 +92,8 @@ export const BookmarkItem = ({
             <button
                 type="button"
                 className="pst-btn-bookmark"
-                title="옵션"
-                aria-label="옵션"
+                title={ttt("common.options")}
+                aria-label={ttt("common.options")}
                 onClick={(event) => {
                     event.stopPropagation();
                     onPopupOption(event, folderId, bookmark.id);
@@ -104,8 +105,8 @@ export const BookmarkItem = ({
                 type="button"
                 className="pst-btn-bookmark pst-btn-delete"
                 style={{ fontSize: "12px" }}
-                title="삭제"
-                aria-label="삭제"
+                title={ttt("common.delete")}
+                aria-label={ttt("common.delete")}
                 onClick={(event) => {
                     event.stopPropagation();
                     onDeleteBookmark(folderId, bookmark.id);
