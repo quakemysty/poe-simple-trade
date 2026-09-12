@@ -1,18 +1,3 @@
-// chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-//     // 페이지 로드 완료 시
-//     if (changeInfo.status === "complete" && tab.url) {
-//         // content script에 메시지 전송
-//         chrome.tabs
-//             .sendMessage(tabId, {
-//                 action: "pageLoaded",
-//                 url: tab.url,
-//             })
-//             .catch(() => {
-//                 console.log("content script not loaded");
-//             });
-//     }
-// });
-
 chrome.runtime.onMessage.addListener((msg, _sender, response) => {
     // 리그 목록 조회
     if (msg.action == "fetchLeagues") {

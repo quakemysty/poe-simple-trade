@@ -1,9 +1,3 @@
-/* ============================================================
-   poe-simple-trade  content script layout
-   - .pst-layout  : 320px 고정 패널 (position: fixed, 항상 full height)
-   - body         : margin-left 320px 로 밀려나는 나머지 영역
-   ============================================================ */
-
 :root {
     --pst-sidebar-width: 320px;
 
@@ -575,13 +569,11 @@ body.pst-page-shift.pst-page-shift-right {
     flex-direction: column;
 }
 
-/* 설정 폴더는 북마크 폴더(.pst-folder 의 padding-bottom: 8px)보다 두 배로 띄운다 */
 .pst-settings-list > .pst-folder {
     padding-bottom: 16px;
 }
 
-/* 설정 폴더 헤더 아이콘.
-   접히지 않으므로 상태를 가리키는 화살표(.pst-folder-icon) 대신 고정된 표식을 쓴다. */
+/* 설정 폴더 헤더 아이콘 */
 .pst-settings-icon {
     flex: 0 0 auto;
     display: inline-flex;
@@ -724,7 +716,6 @@ body.pst-page-shift.pst-page-shift-right {
     padding-right: 26px;
 }
 
-/* select 는 교체 요소라 ::after 를 못 붙인다. 껍데기에 그리고 클릭은 통과시킨다 */
 .pst-select-wrap {
     position: relative;
     display: block;
@@ -746,7 +737,6 @@ body.pst-page-shift.pst-page-shift-right {
     pointer-events: none;
 }
 
-/* 선택 목록의 펼침 항목은 페이지가 아니라 OS 가 그리므로 색을 따로 지정한다 */
 .pst-select option {
     background: var(--pst-bg-folder);
     color: var(--pst-text);
