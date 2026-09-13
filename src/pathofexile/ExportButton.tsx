@@ -54,7 +54,7 @@ export const ExportButton = ({ pathOfExileItemId, makePoeDbLinkButton }: ExportB
         }
 
         try {
-            await navigator.clipboard.writeText(poeUtil.parseItemJsonToEngText(item));
+            await navigator.clipboard.writeText(poeUtil.parseItemJsonToPobText(item));
             showToast("Copied to clipboard!", button);
         } catch (err) {
             console.error("Copy failed:", err);

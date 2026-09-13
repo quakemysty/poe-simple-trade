@@ -29,16 +29,17 @@ const getItemSearchUrl = (bookmarkUrl: string, leagueName: string): string => {
  * Path of Exile 아이템 데이터 조회 / 변환
  */
 type PathOfExileItem = {
-    name?: string;
-    typeLine?: string;
+    name?: string; // 아이템명, 젬일경우 빈값
+    typeLine?: string; // 아이템Base, 젬일경우 젬이름
     rarity?: string;
     ilvl?: number;
-    properties?: { name: string; values: [string, number][] }[];
+    properties?: { name: string; values: [string, number][] }[]; //
+    requirements?: { name: string; values: [string, number][] }[]; //
     sockets?: unknown[];
     socketedItems?: { typeLine?: string }[];
-    implicitMods?: string[];
-    enchantMods?: string[];
-    runeMods?: string[];
+    implicitMods?: { description: string }[];
+    enchantMods?: { description: string }[];
+    runeMods?: { description: string }[];
     explicitMods?: (string | { description?: string; flags?: Record<string, boolean> })[];
     corrupted?: boolean;
 };
@@ -53,20 +54,22 @@ type FetchItemResponse = {
     item?: PathOfExileItem;
 };
 
-const cleanMod = (mod: string): string => mod;
+const cleanMod = (item: { description: string }): string => item.description;
 
 /**
  * Path of Exile trade API 의 아이템 JSON 을 POB(영문) 붙여넣기용 텍스트로 변환
  */
-const parseItemJsonToEngText = (item: PathOfExileItem): string => {
-    const lines: string[] = [];
+const parseItemJsonToPobText = (item: PathOfExileItem): string => {
+    const pobStr: string[] = [];
 
-    const firstProp = item.properties?.[0]?.name || "";
-    lines.push(`Item Class: ${firstProp}`);
-    lines.push(`Rarity: ${item.rarity}`);
-    lines.push(item.name || "");
-    lines.push(item.typeLine || "");
-    lines.push("--------");
+    pobStr.push(item.name || "");
+    pobStr.push(item.typeLine || "");
+    if (item.ilvl) pobStr.push(`Item Level: ${item.ilvl}`);
+
+    const levelReq = item.requirements?.find((req) => req.name === "Level");
+    if (levelReq?.values?.[0]) {
+        pobStr.push(`LevelReq: ${levelReq.values[0][0]}`);
+    }
 
     if (item.properties && item.properties.length > 1) {
         const radiusProp = item.properties.find(
@@ -74,54 +77,50 @@ const parseItemJsonToEngText = (item: PathOfExileItem): string => {
         );
         if (radiusProp) {
             const val = radiusProp.values[0]?.[0] || "";
-            lines.push(`Radius: ${val}`);
+            pobStr.push(`Radius: ${val}`);
         } else {
-            const qualityProp = item.properties.slice(1).find((prop) => {
-                const name = prop.name.replace(/\[(?:.*?)\|(.*?)\]/g, "$1").replace(/[[\]]/g, "");
-                return name.toLowerCase().startsWith("quality");
-            });
-            if (qualityProp) {
-                const vals = qualityProp.values.map((v) => v[0]).join(", ");
-                lines.push(`${qualityProp.name}: ${vals}`);
+            const qualityProp = item.properties.find((prop) => prop.name === "[Quality]");
+            if (qualityProp?.values?.[0]) {
+                pobStr.push(`Quality: ${qualityProp.values[0][0]}`);
+            } else {
+                pobStr.push("Quality: 0");
             }
         }
     }
 
     if (item.sockets?.length) {
         const socketStr = item.sockets.map(() => "S").join(" ");
-        lines.push(`Sockets: ${socketStr}`);
+        pobStr.push(`Sockets: ${socketStr}`);
     }
 
     if (item.socketedItems?.length) {
         item.socketedItems.forEach((rune) => {
-            lines.push(`Rune: ${rune.typeLine || "None"}`);
+            pobStr.push(`Rune: ${rune.typeLine || "None"}`);
         });
     } else {
-        lines.push("Rune: None");
+        pobStr.push("Rune: None");
     }
 
-    lines.push("--------");
-
-    if (item.ilvl) lines.push(`Item Level: ${item.ilvl}`);
-    lines.push("--------");
+    pobStr.push("--------");
 
     if (item.implicitMods?.length) {
-        lines.push(...item.implicitMods.map(cleanMod).map((m) => `{implicit}${m}`));
-        lines.push("--------");
+        pobStr.push(...item.implicitMods.map(cleanMod).map((m) => `{implicit}${m}`));
     }
 
+    pobStr.push("--------");
+
     if (item.enchantMods?.length) {
-        lines.push(...item.enchantMods.map(cleanMod).map((m) => `{enchant}${m}`));
+        pobStr.push(...item.enchantMods.map(cleanMod).map((m) => `{enchant}${m}`));
     }
 
     if (item.runeMods?.length) {
-        lines.push(...item.runeMods.map(cleanMod).map((m) => `{enchant}{rune}${m}`));
+        pobStr.push(...item.runeMods.map(cleanMod).map((m) => `{enchant}{rune}${m}`));
     }
 
-    lines.push("--------");
+    pobStr.push("--------");
 
     if (item.explicitMods?.length) {
-        lines.push(
+        pobStr.push(
             ...item.explicitMods.map((mod) => {
                 if (typeof mod === "string") return mod;
                 if (!mod) return "";
@@ -134,13 +133,13 @@ const parseItemJsonToEngText = (item: PathOfExileItem): string => {
         );
     }
 
-    lines.push("--------");
+    pobStr.push("--------");
 
     if (item.corrupted) {
-        lines.push("Corrupted");
+        pobStr.push("Corrupted");
     }
 
-    return lines.filter(Boolean).join("\n").trim();
+    return pobStr.join("\n").trim();
 };
 
 /**
@@ -200,7 +199,7 @@ export const poeUtil = {
     detectGameType,
     getItemSearchConditionUrl,
     getItemSearchUrl,
-    parseItemJsonToEngText,
+    parseItemJsonToPobText: parseItemJsonToPobText,
     fetchPathOfExileItemInfo,
     getPoeDbUrl,
     getItemSearchInputBoxValue,
