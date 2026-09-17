@@ -45,5 +45,9 @@
     "settings.import.empty": "Enter the bookmark code to import.",
     "settings.import.invalidJson": "Could not read the bookmark code. Paste the copied code as-is.",
     "settings.import.invalidFormat": "The bookmark code format is invalid.",
+    "settings.import.modeLabel": "Import mode",
+    "settings.import.mode.keep": "Keep existing bookmarks",
+    "settings.import.mode.replace": "Delete existing bookmarks",
+    "settings.import.confirmAppend": "This will add the imported bookmarks after your current ones. Continue?",
     "settings.import.confirmOverwrite": "This will overwrite all current bookmarks. Continue?"
 }

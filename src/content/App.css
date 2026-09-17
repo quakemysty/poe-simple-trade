@@ -388,6 +388,23 @@ body.pst-page-shift.pst-page-shift-right {
     color: var(--pst-text);
 }
 
+/* 폴더 행 / 북마크 행의 액션 버튼(추가/옵션/삭제)은 평소에는 숨김 */
+.pst-folder-item .pst-btn-bookmark,
+.pst-bookmark-item .pst-btn-bookmark {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 폴더 행 / 북마크 행의 액션 버튼(추가/옵션/삭제)은 보임 처리 */
+.pst-folder-item:hover .pst-btn-bookmark,
+.pst-folder-item:focus-visible .pst-btn-bookmark,
+.pst-folder-item:has(:focus-visible) .pst-btn-bookmark,
+.pst-bookmark-item:hover .pst-btn-bookmark,
+.pst-bookmark-item:has(:focus-visible) .pst-btn-bookmark {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 .pst-bookmark-empty {
     padding: 3px 6px;
     border: 1px solid var(--pst-border);

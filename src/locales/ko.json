@@ -45,5 +45,9 @@
     "settings.import.empty": "불러올 북마크 코드를 입력하세요.",
     "settings.import.invalidJson": "북마크 코드를 해석할 수 없습니다. 복사한 코드를 그대로 붙여넣으세요.",
     "settings.import.invalidFormat": "북마크 코드 형식이 올바르지 않습니다.",
+    "settings.import.modeLabel": "불러오기 방식",
+    "settings.import.mode.keep": "기존 북마크 유지",
+    "settings.import.mode.replace": "기존 북마크 삭제",
+    "settings.import.confirmAppend": "불러온 북마크를 현재 북마크 뒤에 추가합니다. 계속하시겠습니까?",
     "settings.import.confirmOverwrite": "현재 북마크를 모두 덮어씁니다. 계속하시겠습니까?"
 }

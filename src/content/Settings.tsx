@@ -5,9 +5,12 @@ import { setEventToPoeSearchInputBox } from "../pathofexile/makeAutoTileSearch";
 
 import {
     loadSettings,
+    mergeBookmarkData,
     parseBookmarkData,
     saveSettings,
+    toExportBookmarkData,
     type BookmarkData,
+    type ImportMode,
     type Language,
     type SidebarPosition,
 } from "./storage";
@@ -23,6 +26,11 @@ const LANGUAGES: { value: Language; label: string }[] = [
 const SIDEBAR_POSITIONS: { value: SidebarPosition; labelKey: MessageKey }[] = [
     { value: "left", labelKey: "settings.sidebarPosition.left" },
     { value: "right", labelKey: "settings.sidebarPosition.right" },
+];
+
+const IMPORT_MODES: { value: ImportMode; labelKey: MessageKey }[] = [
+    { value: "keep", labelKey: "settings.import.mode.keep" },
+    { value: "replace", labelKey: "settings.import.mode.replace" },
 ];
 
 type SettingFolderProps = {
@@ -87,10 +95,12 @@ export const Settings = ({
     const [isLoadingLeagues, setIsLoadingLeagues] = useState(false);
     // 북마크 import 텍스트박스
     const [importCode, setImportCode] = useState("");
+    // 북마크 import 방식
+    const [importMode, setImportMode] = useState(() => loadSettings().importMode);
 
     useEffect(() => {
-        saveSettings({ leagueName: leagueName, autoAppendTilde });
-    }, [leagueName, autoAppendTilde]);
+        saveSettings({ leagueName: leagueName, autoAppendTilde, importMode });
+    }, [leagueName, autoAppendTilde, importMode]);
 
     /**
      * 리그 목록 조회 : poe.ninja API 조회
@@ -134,7 +144,12 @@ export const Settings = ({
      * [Click Event] Export Boomkmark
      */
     const handleExportBookmarks = async () => {
-        const code = JSON.stringify({ folders, bookmarks } satisfies BookmarkData, null, 2);
+        // 저장소와 같은 모양(식별자를 uuid 로)으로 내보낸다
+        const code = JSON.stringify(
+            toExportBookmarkData({ folders, bookmarks } satisfies BookmarkData),
+            null,
+            2,
+        );
 
         try {
             await navigator.clipboard.writeText(code);
@@ -169,12 +184,20 @@ export const Settings = ({
             return;
         }
 
-        if (!window.confirm(ttt("settings.import.confirmOverwrite"))) {
+        const confirmKey =
+            importMode === "keep"
+                ? "settings.import.confirmAppend"
+                : "settings.import.confirmOverwrite";
+        if (!window.confirm(ttt(confirmKey))) {
             return;
         }
 
-        setFolders(parsed.folders);
-        setBookmarks(parsed.bookmarks);
+        // "기존 북마크 유지" 는 현재 북마크 뒤에 붙이고, "기존 북마크 삭제" 는 통째로 갈아끼운다
+        const next =
+            importMode === "keep" ? mergeBookmarkData({ folders, bookmarks }, parsed) : parsed;
+
+        setFolders(next.folders);
+        setBookmarks(next.bookmarks);
         // 지워진 폴더의 펼침 상태가 남지 않도록 초기화
         setImportCode("");
     };
@@ -300,6 +323,24 @@ export const Settings = ({
             {/* 북마크 불러오기                                             */}
             {/* ============================================================ */}
             <SettingFolder name={ttt("settings.import.title")}>
+                <div
+                    className="pst-radio-group"
+                    role="radiogroup"
+                    aria-label={ttt("settings.import.modeLabel")}
+                >
+                    {IMPORT_MODES.map((option) => (
+                        <label key={option.value} className="pst-radio">
+                            <input
+                                type="radio"
+                                name="pst-import-mode"
+                                value={option.value}
+                                checked={importMode === option.value}
+                                onChange={() => setImportMode(option.value)}
+                            />
+                            <span>{ttt(option.labelKey)}</span>
+                        </label>
+                    ))}
+                </div>
                 <textarea
                     className="pst-textarea"
                     rows={6}

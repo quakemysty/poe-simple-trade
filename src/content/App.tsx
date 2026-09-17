@@ -9,6 +9,7 @@ import { ContextMenu } from "./ContextMenu";
 import { Settings } from "./Settings";
 import { PoeNinjaCurrency } from "./PoeNinjaCurrency";
 import {
+    createUuid,
     loadBookmarkData,
     loadSettings,
     saveBookmarkData as saveBookmarkDataToStorage,
@@ -93,13 +94,18 @@ export const App = () => {
      * [Click Event] New Folder
      */
     const handleNewFolder = () => {
-        const folderId = `folder-${Date.now()}`;
+        const folderId = createUuid();
         const folderName = window.prompt(ttt("folder.promptName"));
         if (!folderName) return;
 
         setFolders((prev) => [
             ...prev,
-            { id: folderId, name: folderName, gameType: poeUtil.detectGameType(), expanded: false },
+            {
+                id: folderId,
+                name: folderName,
+                gameType: poeUtil.detectGameType(),
+                expanded: false,
+            },
         ]);
         // 빈 폴더도 드롭 대상이 되려면 BookmarkMap 에 키가 있어야 한다
         setBookmarks((prev) => ({ ...prev, [folderId]: [] }));
@@ -113,7 +119,7 @@ export const App = () => {
             ...prev,
             [folderId]: [
                 ...(prev[folderId] ?? []),
-                { id: `bookmark-${Date.now()}`, label, url, gameType: poeUtil.detectGameType() },
+                { id: createUuid(), label, url, gameType: poeUtil.detectGameType() },
             ],
         }));
         // 새 북마크가 바로 보이도록 폴더를 펼친다

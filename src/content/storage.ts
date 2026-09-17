@@ -12,6 +12,8 @@ const CURRENCY_KEY = "pst." + poeUtil.detectGameType() + ".currency";
 
 export type SidebarPosition = "left" | "right";
 export type Language = "ko" | "en";
+/** 북마크 불러오기 방식. 현재 북마크에 이어 붙일지(keep), 지우고 대체할지(replace) */
+export type ImportMode = "keep" | "replace";
 
 /** 저장 / 내보내기 / 불러오기가 모두 쓰는 북마크 구조 */
 export type BookmarkData = {
@@ -30,6 +32,8 @@ export type AppSettings = {
     isSidebarHidden: boolean;
     /** 시세 탭에서 poe.ninja 를 마지막으로 조회한 시각(ms). 조회한 적 없으면 0 */
     currencyRefreshedAt: number;
+    /** 설정 탭 '북마크 불러오기' 에서 마지막으로 고른 방식 */
+    importMode: ImportMode;
 };
 
 /** 시세 탭 조회 결과. 조회 시각은 AppSettings.currencyRefreshedAt */
@@ -45,10 +49,29 @@ const DEFAULT_SETTINGS: AppSettings = {
     sidebarPosition: "left",
     isSidebarHidden: false,
     currencyRefreshedAt: 0,
+    importMode: "keep",
 };
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
     typeof value === "object" && value !== null;
+
+/**
+ * 폴더 / 북마크 식별자를 새로 만든다.
+ */
+export const createUuid = (): string => crypto.randomUUID();
+
+/**
+ * 저장된 폴더 / 북마크의 식별자를 읽는다. 둘 다 없으면 undefined
+ *
+ * 마이그레이션 : 예전 버전은 식별자를 id 로 저장했다. 지금은 uuid 로만 저장하고(toStoredBookmarkData)
+ * 읽을 때만 예전 id 를 받아 준다. 예전 데이터도 한 번 읽혀서 다시 저장되는 순간 uuid 로 바뀐다.
+ */
+const readUuid = (value: Record<string, unknown>): string | undefined => {
+    if (typeof value.uuid === "string") return value.uuid;
+    if (typeof value.id === "string") return value.id;
+
+    return undefined;
+};
 
 /**
  * import 한 Json 유효성 체크
@@ -62,10 +85,12 @@ export const parseBookmarkData = (value: unknown): BookmarkData | undefined => {
     const parsedFolders: Folder[] = [];
     for (const folder of folders) {
         if (!isRecord(folder)) return undefined;
-        if (typeof folder.id !== "string" || typeof folder.name !== "string") return undefined;
+
+        const folderUuid = readUuid(folder);
+        if (folderUuid === undefined || typeof folder.name !== "string") return undefined;
 
         parsedFolders.push({
-            id: folder.id,
+            id: folderUuid,
             name: folder.name,
             gameType: folder.gameType as string,
             expanded: folder.expanded === true,
@@ -79,8 +104,10 @@ export const parseBookmarkData = (value: unknown): BookmarkData | undefined => {
         const parsedList: Bookmark[] = [];
         for (const bookmark of list) {
             if (!isRecord(bookmark)) return undefined;
+
+            const bookmarkUuid = readUuid(bookmark);
             if (
-                typeof bookmark.id !== "string" ||
+                bookmarkUuid === undefined ||
                 typeof bookmark.label !== "string" ||
                 typeof bookmark.url !== "string"
             ) {
@@ -88,7 +115,7 @@ export const parseBookmarkData = (value: unknown): BookmarkData | undefined => {
             }
 
             parsedList.push({
-                id: bookmark.id,
+                id: bookmarkUuid,
                 label: bookmark.label,
                 url: bookmark.url,
             });
@@ -98,6 +125,44 @@ export const parseBookmarkData = (value: unknown): BookmarkData | undefined => {
     }
 
     return { folders: parsedFolders, bookmarks: parsedBookmarks };
+};
+
+/**
+ * 저장소 / 내보내기 코드에 들어가는 모양으로 바꾼다. 식별자를 id 가 아니라 uuid 로 쓴다.
+ *
+ * 화면 쪽 타입(Folder, Bookmark)이 id 를 그대로 쓰는 이유 : dnd-kit 의 move() 헬퍼가 항목마다
+ * id 프로퍼티를 요구해서(@see /src/content/App.tsx 의 handleDragOver) 메모리에서는 id 를 못 뗀다.
+ * 그래서 이름 변경을 저장 경계에서만 한다. 읽는 쪽은 parseBookmarkData 가 되돌린다.
+ */
+const toStoredBookmarkData = ({ folders, bookmarks }: BookmarkData) => ({
+    folders: folders.map(({ id, ...rest }) => ({ uuid: id, ...rest })),
+    bookmarks: Object.fromEntries(
+        Object.entries(bookmarks).map(([folderId, list]) => [
+            folderId,
+            list.map(({ id, ...rest }) => ({ uuid: id, ...rest })),
+        ]),
+    ),
+});
+
+/**
+ * 불러온 북마크를 현재 북마크 뒤에 이어 붙인다.
+ */
+export const mergeBookmarkData = (current: BookmarkData, incoming: BookmarkData): BookmarkData => {
+    const folders = [...current.folders];
+    const bookmarks: BookmarkMap = { ...current.bookmarks };
+
+    for (const folder of incoming.folders) {
+        const folderId = createUuid();
+        folders.push({ ...folder, id: folderId });
+
+        // 빈 폴더도 드롭 대상이 되려면 BookmarkMap 에 키가 있어야 한다
+        bookmarks[folderId] = (incoming.bookmarks[folder.id] ?? []).map((bookmark) => ({
+            ...bookmark,
+            id: createUuid(),
+        }));
+    }
+
+    return { folders, bookmarks };
 };
 
 /**
@@ -119,8 +184,11 @@ export const loadBookmarkData = (): BookmarkData | undefined => {
 };
 
 export const saveBookmarkData = (data: BookmarkData) => {
-    return writeToStorage(BOOKMARKS_KEY, data);
+    return writeToStorage(BOOKMARKS_KEY, toStoredBookmarkData(data));
 };
+
+/** 내보내기 코드. 저장소에 들어가는 것과 같은 모양이라 그대로 다시 불러올 수 있다 */
+export const toExportBookmarkData = (data: BookmarkData) => toStoredBookmarkData(data);
 
 /** 저장된 설정. 값이 없거나 이상하면 항목별로 기본값을 쓴다 */
 export const loadSettings = (): AppSettings => {
@@ -150,6 +218,10 @@ export const loadSettings = (): AppSettings => {
             typeof stored.currencyRefreshedAt === "number"
                 ? stored.currencyRefreshedAt
                 : DEFAULT_SETTINGS.currencyRefreshedAt,
+        importMode:
+            stored.importMode === "keep" || stored.importMode === "replace"
+                ? stored.importMode
+                : DEFAULT_SETTINGS.importMode,
     };
 };
 
