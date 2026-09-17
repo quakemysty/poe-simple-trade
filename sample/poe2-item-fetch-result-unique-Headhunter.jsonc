@@ -1,3 +1,5 @@
+// https://www.pathofexile.com/api/trade2/fetch/64adb71600e2f7f2466b8d558fcdb816e2e3149ab33fa1f1ff11c2007e5ca05d
+
 {
     "result": [
         {
@@ -8,12 +10,12 @@
                 "stash": {
                     "name": "18",
                     "x": 0,
-                    "y": 3
+                    "y": 3,
                 },
                 "price": {
                     "type": "~b/o",
                     "amount": 265,
-                    "currency": "divine"
+                    "currency": "divine",
                 },
                 "fee": 19593,
                 "account": {
@@ -21,9 +23,9 @@
                     "online": null,
                     "lastCharacterName": "aaaaaaaaaaa",
                     "language": "ru_RU",
-                    "realm": "poe2"
+                    "realm": "poe2",
                 },
-                "whisper": "aaaaaaaaa"
+                "whisper": "aaaaaaaaa",
             },
             "item": {
                 "realm": "poe2",
@@ -46,16 +48,16 @@
                         "name": "Belt",
                         "values": [],
                         "displayMode": 0,
-                        "type": 109
-                    }
+                        "type": 109,
+                    },
                 ],
                 "requirements": [
                     {
                         "name": "Level",
                         "values": [["50", 0]],
                         "displayMode": 0,
-                        "type": 62
-                    }
+                        "type": 62,
+                    },
                 ],
                 "implicitMods": [
                     {
@@ -68,11 +70,11 @@
                                 "magnitudes": [
                                     {
                                         "min": "20",
-                                        "max": "30"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "30",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "Has 3 [Charm] Slots",
@@ -83,12 +85,12 @@
                                 "magnitudes": [
                                     {
                                         "min": "1",
-                                        "max": "3"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
+                                        "max": "3",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
                 ],
                 "explicitMods": [
                     {
@@ -100,11 +102,11 @@
                                 "magnitudes": [
                                     {
                                         "min": "40",
-                                        "max": "60"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "60",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "+31 to [Strength|Strength]",
@@ -115,11 +117,11 @@
                                 "magnitudes": [
                                     {
                                         "min": "20",
-                                        "max": "40"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "40",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "+26 to [Dexterity|Dexterity]",
@@ -130,11 +132,11 @@
                                 "magnitudes": [
                                     {
                                         "min": "20",
-                                        "max": "40"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "40",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "When you kill a [Rarity|Rare] monster, you gain its [MonsterModifiers|Modifiers] for 60 seconds",
@@ -145,18 +147,18 @@
                                 "magnitudes": [
                                     {
                                         "min": "1",
-                                        "max": "1"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
+                                        "max": "1",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
                 ],
                 "flavourText": [
                     "\"A man's soul rules from a cavern of bone, learns and\r",
                     "judges through flesh-born windows. The heart is meat.\r",
                     "The head is where the Man is.\"\r",
-                    "- Lavianga, Advisor to Kaom"
+                    "- Lavianga, Advisor to Kaom",
                 ],
                 "frameType": 3,
                 "frameTypeId": "Unique",
@@ -166,15 +168,15 @@
                             ["explicit.stat_3299347043", [2]],
                             ["explicit.stat_4080418644", [0]],
                             ["explicit.stat_3261801346", [1]],
-                            ["explicit.stat_2913235441", [3]]
+                            ["explicit.stat_2913235441", [3]],
                         ],
                         "implicit": [
                             ["implicit.stat_680068163", [0]],
-                            ["implicit.stat_1416292992", [1]]
-                        ]
-                    }
-                }
-            }
-        }
-    ]
+                            ["implicit.stat_1416292992", [1]],
+                        ],
+                    },
+                },
+            },
+        },
+    ],
 }

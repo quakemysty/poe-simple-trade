@@ -1,3 +1,5 @@
+// https://www.pathofexile.com/api/trade2/fetch/524b840da45098fb274f7ba9f7afb397a12194338aa863b4f1220d0fcac4ddfb
+
 {
     "result": [
         {
@@ -8,18 +10,18 @@
                 "stash": {
                     "name": "34",
                     "x": 8,
-                    "y": 8
+                    "y": 8,
                 },
                 "price": {
                     "type": "~b/o",
                     "amount": 5,
-                    "currency": "mirror"
+                    "currency": "mirror",
                 },
                 "fee": 180242,
                 "account": {
                     "name": "aaaaaaaaaa",
-                    "online": null
-                }
+                    "online": null,
+                },
             },
             "item": {
                 "realm": "poe2",
@@ -33,20 +35,20 @@
                 "sockets": [
                     {
                         "group": 0,
-                        "type": "rune"
+                        "type": "rune",
                     },
                     {
                         "group": 1,
-                        "type": "rune"
+                        "type": "rune",
                     },
                     {
                         "group": 2,
-                        "type": "rune"
+                        "type": "rune",
                     },
                     {
                         "group": 3,
-                        "type": "rune"
-                    }
+                        "type": "rune",
+                    },
                 ],
                 "name": "Apocalypse Wing",
                 "typeLine": "Warmonger Bow",
@@ -62,46 +64,46 @@
                         "name": "[Bow]",
                         "values": [],
                         "displayMode": 0,
-                        "type": 109
+                        "type": 109,
                     },
                     {
                         "name": "[Quality]",
                         "values": [["+30%", 1]],
                         "displayMode": 0,
-                        "type": 6
+                        "type": 6,
                     },
                     {
                         "name": "[Physical] Damage",
                         "values": [["433-681", 1]],
                         "displayMode": 0,
-                        "type": 9
+                        "type": 9,
                     },
                     {
                         "name": "[Critical|Critical Hit] Chance",
                         "values": [["10.00%", 1]],
                         "displayMode": 0,
-                        "type": 12
+                        "type": 12,
                     },
                     {
                         "name": "Attacks per Second",
                         "values": [["1.29", 1]],
                         "displayMode": 0,
-                        "type": 13
-                    }
+                        "type": 13,
+                    },
                 ],
                 "requirements": [
                     {
                         "name": "Level",
                         "values": [["77", 0]],
                         "displayMode": 0,
-                        "type": 62
+                        "type": 62,
                     },
                     {
                         "name": "[Dexterity|Dex]",
                         "values": [["163", 0]],
                         "displayMode": 1,
-                        "type": 64
-                    }
+                        "type": 64,
+                    },
                 ],
                 "enchantMods": [
                     {
@@ -113,63 +115,63 @@
                                 "magnitudes": [
                                     {
                                         "min": "6",
-                                        "max": "8"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
+                                        "max": "8",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
                 ],
                 "runeMods": [
                     {
                         "description": "+1 Suffix Modifier allowed",
                         "domain": "rune",
-                        "hash": "stat.rune.stat_718638445"
+                        "hash": "stat.rune.stat_718638445",
                     },
                     {
                         "description": "Bow [Attack|Attacks] fire an additional Arrow",
                         "domain": "rune",
-                        "hash": "stat.rune.stat_3885405204"
+                        "hash": "stat.rune.stat_3885405204",
                     },
                     {
                         "description": "-20% to all [ElementalDamage|Elemental] [Resistances]",
                         "domain": "rune",
-                        "hash": "stat.rune.stat_2901986750"
+                        "hash": "stat.rune.stat_2901986750",
                     },
                     {
                         "description": "[Gain] 20% of Damage as Extra Damage of a random [ElementalDamage|Element]",
                         "domain": "rune",
-                        "hash": "stat.rune.stat_3617669804"
+                        "hash": "stat.rune.stat_3617669804",
                     },
                     {
                         "description": "[Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]",
                         "domain": "rune",
-                        "hash": "stat.rune.stat_731403740"
+                        "hash": "stat.rune.stat_731403740",
                     },
                     {
                         "description": "[ShamanOnlyMods|Bonded]: 20% increased [Projectile] Speed",
                         "domain": "rune",
-                        "hash": "stat.rune.stat_1631975646"
+                        "hash": "stat.rune.stat_1631975646",
                     },
                     {
                         "description": "[ShamanOnlyMods|Bonded]: -20% to [Resistances|Chaos Resistance]",
                         "domain": "rune",
-                        "hash": "stat.rune.stat_3351086592"
+                        "hash": "stat.rune.stat_3351086592",
                     },
                     {
                         "description": "[ShamanOnlyMods|Bonded]: [Gain] 20% of Damage as Extra [Chaos] Damage",
                         "domain": "rune",
-                        "hash": "stat.rune.stat_1712188793"
+                        "hash": "stat.rune.stat_1712188793",
                     },
                     {
-                        "description": "[ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge"
-                    }
+                        "description": "[ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
+                    },
                 ],
                 "explicitMods": [
                     {
                         "description": "+5% to [Critical|Critical Hit] Chance",
                         "flags": {
-                            "fractured": true
+                            "fractured": true,
                         },
                         "domain": "fractured",
                         "hash": "stat.fractured.stat_518292764",
@@ -181,11 +183,11 @@
                                 "magnitudes": [
                                     {
                                         "min": "4.41",
-                                        "max": "5"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "5",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "254% increased [Physical] Damage",
@@ -199,9 +201,9 @@
                                 "magnitudes": [
                                     {
                                         "min": "170",
-                                        "max": "179"
-                                    }
-                                ]
+                                        "max": "179",
+                                    },
+                                ],
                             },
                             {
                                 "name": "Dictator's",
@@ -210,11 +212,11 @@
                                 "magnitudes": [
                                     {
                                         "min": "75",
-                                        "max": "79"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "79",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "Adds 38 to 64 [Physical|Physical] Damage",
@@ -228,15 +230,15 @@
                                 "magnitudes": [
                                     {
                                         "min": "26",
-                                        "max": "39"
+                                        "max": "39",
                                     },
                                     {
                                         "min": "44",
-                                        "max": "66"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "66",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "+195 to [Accuracy|Accuracy] Rating",
@@ -250,11 +252,11 @@
                                 "magnitudes": [
                                     {
                                         "min": "175",
-                                        "max": "200"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "200",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "+25% to [CriticalDamageBonus|Critical Damage Bonus]",
@@ -268,11 +270,11 @@
                                 "magnitudes": [
                                     {
                                         "min": "23",
-                                        "max": "25"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "25",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "+194% [SurpassChance|Surpassing] chance to fire an additional Arrow",
@@ -286,16 +288,16 @@
                                 "magnitudes": [
                                     {
                                         "min": "175",
-                                        "max": "200"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "200",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "+4 to Level of all [Projectile] Skills",
                         "flags": {
-                            "desecrated": true
+                            "desecrated": true,
                         },
                         "domain": "desecrated",
                         "hash": "stat.desecrated.stat_1202301673",
@@ -307,12 +309,12 @@
                                 "magnitudes": [
                                     {
                                         "min": "4",
-                                        "max": "4"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
+                                        "max": "4",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
                 ],
                 "desecrated": true,
                 "frameType": 2,
@@ -338,36 +340,36 @@
                                 "name": "Stack Size",
                                 "values": [["1/10", 0]],
                                 "displayMode": 0,
-                                "type": 32
+                                "type": 32,
                             },
                             {
                                 "name": "[Rune|Rune]",
                                 "values": [],
-                                "displayMode": 0
+                                "displayMode": 0,
                             },
                             {
                                 "name": "Limited to",
                                 "values": [["1", 0]],
-                                "displayMode": 0
-                            }
+                                "displayMode": 0,
+                            },
                         ],
                         "runeMods": ["[SocketBound|Socket-bound]"],
                         "explicitMods": [
                             {
-                                "description": "All Equipment: +1 Suffix Modifier allowed"
-                            }
+                                "description": "All Equipment: +1 Suffix Modifier allowed",
+                            },
                         ],
                         "descrText": "Place into an empty [Augment] Socket in any Equipment to apply its effect to that item. Once socketed it cannot be retrieved or replaced.",
                         "flavourText": [
                             "The pinnacle of Serle's work was not a grand artefact.\r",
                             "It was a subversion; a window. He stood upon a peak\r",
                             "and saw beyond mortal limitations, understanding, in\r",
-                            "that moment, that so much more was possible..."
+                            "that moment, that so much more was possible...",
                         ],
                         "frameType": 5,
                         "frameTypeId": "Currency",
                         "socket": 0,
-                        "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9XYXJwZWRSdW5lU29ja2V0RmlsbGVkU3BlY2lhbCIsInJlYWxtIjoicG9lMiJ9XQ/af18b965d0/WarpedRuneSocketFilledSpecial.png"
+                        "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9XYXJwZWRSdW5lU29ja2V0RmlsbGVkU3BlY2lhbCIsInJlYWxtIjoicG9lMiJ9XQ/af18b965d0/WarpedRuneSocketFilledSpecial.png",
                     },
                     {
                         "realm": "poe2",
@@ -389,45 +391,45 @@
                                 "name": "Stack Size",
                                 "values": [["1/10", 0]],
                                 "displayMode": 0,
-                                "type": 32
+                                "type": 32,
                             },
                             {
                                 "name": "[Rune|Rune]",
                                 "values": [],
-                                "displayMode": 0
+                                "displayMode": 0,
                             },
                             {
                                 "name": "Limited to",
                                 "values": [["1", 0]],
-                                "displayMode": 0
-                            }
+                                "displayMode": 0,
+                            },
                         ],
                         "requirements": [
                             {
                                 "name": "Level",
                                 "values": [["50", 0]],
                                 "displayMode": 0,
-                                "type": 62
-                            }
+                                "type": 62,
+                            },
                         ],
                         "explicitMods": [
                             {
-                                "description": "[MartialWeapon|Martial Weapon]: [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]"
+                                "description": "[MartialWeapon|Martial Weapon]: [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]",
                             },
                             {
-                                "description": "Wand or Staff: [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]"
-                            }
+                                "description": "Wand or Staff: [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]",
+                            },
                         ],
                         "bondedMods": [
                             "[ShamanOnlyMods|Bonded]:",
                             "[MartialWeapon|Martial Weapon]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
-                            "Wand or Staff: 12% chance when collecting an [ElementalInfusion|Elemental Infusion] to gain an\nadditional [ElementalInfusion|Elemental Infusion] of the same type"
+                            "Wand or Staff: 12% chance when collecting an [ElementalInfusion|Elemental Infusion] to gain an\nadditional [ElementalInfusion|Elemental Infusion] of the same type",
                         ],
                         "descrText": "Place into an empty [Augment] Socket in a Weapon to apply its effect to that item. Once socketed it cannot be retrieved but can be replaced by other [Augment] items.",
                         "frameType": 5,
                         "frameTypeId": "Currency",
                         "socket": 1,
-                        "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9SdW5lU29ja2V0RmlsbGVkU3BlY2lhbCIsInJlYWxtIjoicG9lMiJ9XQ/4576081b73/RuneSocketFilledSpecial.png"
+                        "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9SdW5lU29ja2V0RmlsbGVkU3BlY2lhbCIsInJlYWxtIjoicG9lMiJ9XQ/4576081b73/RuneSocketFilledSpecial.png",
                     },
                     {
                         "realm": "poe2",
@@ -449,46 +451,46 @@
                                 "name": "Stack Size",
                                 "values": [["1/10", 0]],
                                 "displayMode": 0,
-                                "type": 32
+                                "type": 32,
                             },
                             {
                                 "name": "[Idol]",
                                 "values": [],
-                                "displayMode": 0
+                                "displayMode": 0,
                             },
                             {
                                 "name": "Limited to",
                                 "values": [["1", 0]],
-                                "displayMode": 0
-                            }
+                                "displayMode": 0,
+                            },
                         ],
                         "requirements": [
                             {
                                 "name": "Level",
                                 "values": [["50", 0]],
                                 "displayMode": 0,
-                                "type": 62
-                            }
+                                "type": 62,
+                            },
                         ],
                         "explicitMods": [
                             {
-                                "description": "[MartialWeapon|Martial Weapon], Wand or Staff:"
+                                "description": "[MartialWeapon|Martial Weapon], Wand or Staff:",
                             },
                             {
-                                "description": "-20% to all [ElementalDamage|Elemental] [Resistances]"
+                                "description": "-20% to all [ElementalDamage|Elemental] [Resistances]",
                             },
                             {
-                                "description": "[Gain] 20% of Damage as Extra Damage of a random [ElementalDamage|Element]"
+                                "description": "[Gain] 20% of Damage as Extra Damage of a random [ElementalDamage|Element]",
                             },
                             {
-                                "description": "Sceptres:"
+                                "description": "Sceptres:",
                             },
                             {
-                                "description": "[Companion|Companions] in your [Presence] have -20% to all [ElementalDamage|Elemental] [Resistances]"
+                                "description": "[Companion|Companions] in your [Presence] have -20% to all [ElementalDamage|Elemental] [Resistances]",
                             },
                             {
-                                "description": "[Companion|Companions] in your [Presence] [Gain] 20% of Damage as Extra Damage of a random [ElementalDamage|Element]"
-                            }
+                                "description": "[Companion|Companions] in your [Presence] [Gain] 20% of Damage as Extra Damage of a random [ElementalDamage|Element]",
+                            },
                         ],
                         "bondedMods": [
                             "[ShamanOnlyMods|Bonded]:",
@@ -497,13 +499,13 @@
                             "[Gain] 20% of Damage as Extra [Chaos] Damage",
                             "Sceptres:",
                             "[Allies|Allies] in your [Presence|Presence] [Gain] 20% of Damage as Extra [Chaos] Damage",
-                            "[Companion|Companions] in your [Presence] have -20% to [Resistances|Chaos Resistance]"
+                            "[Companion|Companions] in your [Presence] have -20% to [Resistances|Chaos Resistance]",
                         ],
                         "descrText": "Place into an empty [Augment] Socket in a Weapon to apply its effect to that item. Once socketed it cannot be retrieved but can be replaced by other [Augment] items.",
                         "frameType": 5,
                         "frameTypeId": "Currency",
                         "socket": 2,
-                        "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9SaXR1YWxTb2NrZXRGaWxsZWQiLCJyZWFsbSI6InBvZTIifV0/61f1b791f4/RitualSocketFilled.png"
+                        "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9SaXR1YWxTb2NrZXRGaWxsZWQiLCJyZWFsbSI6InBvZTIifV0/61f1b791f4/RitualSocketFilled.png",
                     },
                     {
                         "realm": "poe2",
@@ -525,42 +527,42 @@
                                 "name": "Stack Size",
                                 "values": [["1/10", 0]],
                                 "displayMode": 0,
-                                "type": 32
+                                "type": 32,
                             },
                             {
                                 "name": "[Rune|Rune]",
                                 "values": [],
-                                "displayMode": 0
+                                "displayMode": 0,
                             },
                             {
                                 "name": "Limited to",
                                 "values": [["1", 0]],
-                                "displayMode": 0
-                            }
+                                "displayMode": 0,
+                            },
                         ],
                         "requirements": [
                             {
                                 "name": "Level",
                                 "values": [["50", 0]],
                                 "displayMode": 0,
-                                "type": 62
-                            }
+                                "type": 62,
+                            },
                         ],
                         "explicitMods": [
                             {
-                                "description": "Bows: Bow [Attack|Attacks] fire an additional Arrow"
-                            }
+                                "description": "Bows: Bow [Attack|Attacks] fire an additional Arrow",
+                            },
                         ],
                         "bondedMods": [
                             "[ShamanOnlyMods|Bonded]:",
-                            "Bows: 20% increased [Projectile] Speed"
+                            "Bows: 20% increased [Projectile] Speed",
                         ],
                         "descrText": "Place into an empty [Augment] Socket in a Bow to apply its effect to that item. Once socketed it cannot be retrieved but can be replaced by other [Augment] items.",
                         "frameType": 5,
                         "frameTypeId": "Currency",
                         "socket": 3,
-                        "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9SdW5lU29ja2V0RmlsbGVkU3BlY2lhbCIsInJlYWxtIjoicG9lMiJ9XQ/4576081b73/RuneSocketFilledSpecial.png"
-                    }
+                        "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9SdW5lU29ja2V0RmlsbGVkU3BlY2lhbCIsInJlYWxtIjoicG9lMiJ9XQ/4576081b73/RuneSocketFilledSpecial.png",
+                    },
                 ],
                 "extended": {
                     "dps": 718.53,
@@ -572,7 +574,7 @@
                             ["explicit.stat_1940865751", [3]],
                             ["explicit.stat_691932474", [1]],
                             ["explicit.stat_2694482655", [4]],
-                            ["explicit.stat_2463230181", [2]]
+                            ["explicit.stat_2463230181", [2]],
                         ],
                         "fractured": [["fractured.stat_518292764", [0]]],
                         "enchant": [["enchant.stat_210067635", [0]]],
@@ -584,12 +586,12 @@
                             ["rune.stat_731403740", null],
                             ["rune.stat_1631975646", null],
                             ["rune.stat_3351086592", null],
-                            ["rune.stat_1712188793", null]
+                            ["rune.stat_1712188793", null],
                         ],
-                        "desecrated": [["desecrated.stat_1202301673", [0]]]
-                    }
-                }
-            }
-        }
-    ]
+                        "desecrated": [["desecrated.stat_1202301673", [0]]],
+                    },
+                },
+            },
+        },
+    ],
 }

@@ -1,3 +1,5 @@
+// https://www.pathofexile.com/api/trade2/fetch/aaef5625fc3b8222e7e2da22f7dccb2bc05cbcaf891100b115c3ed6a895e198e
+
 {
     "result": [
         {
@@ -8,12 +10,12 @@
                 "stash": {
                     "name": "5",
                     "x": 7,
-                    "y": 6
+                    "y": 6,
                 },
                 "price": {
                     "type": "~b/o",
                     "amount": 7,
-                    "currency": "divine"
+                    "currency": "divine",
                 },
                 "fee": 22407,
                 "account": {
@@ -21,9 +23,9 @@
                     "online": null,
                     "lastCharacterName": "aaaaaaaaa",
                     "language": "zh_TW",
-                    "realm": "poe2"
+                    "realm": "poe2",
                 },
-                "whisper": "@aaaaaaaaa aaaaaaaa"
+                "whisper": "@aaaaaaaaa aaaaaaaa",
             },
             "item": {
                 "realm": "poe2",
@@ -36,8 +38,8 @@
                 "sockets": [
                     {
                         "group": 0,
-                        "type": "rune"
-                    }
+                        "type": "rune",
+                    },
                 ],
                 "name": "Sacred Flame",
                 "typeLine": "Shrine Sceptre",
@@ -52,40 +54,40 @@
                         "name": "[Sceptre]",
                         "values": [],
                         "displayMode": 0,
-                        "type": 109
+                        "type": 109,
                     },
                     {
                         "name": "[Quality]",
                         "values": [["+20%", 1]],
                         "displayMode": 0,
-                        "type": 6
+                        "type": 6,
                     },
                     {
                         "name": "[Spirit]",
                         "values": [["115", 1]],
                         "displayMode": 0,
-                        "type": 25
-                    }
+                        "type": 25,
+                    },
                 ],
                 "requirements": [
                     {
                         "name": "Level",
                         "values": [["55", 0]],
                         "displayMode": 0,
-                        "type": 62
+                        "type": 62,
                     },
                     {
                         "name": "[Strength|Str]",
                         "values": [["17", 0]],
                         "displayMode": 1,
-                        "type": 63
+                        "type": 63,
                     },
                     {
                         "name": "[Intelligence|Int]",
                         "values": [["38", 0]],
                         "displayMode": 1,
-                        "type": 65
-                    }
+                        "type": 65,
+                    },
                 ],
                 "grantedSkills": [
                     {
@@ -94,8 +96,8 @@
                         "displayMode": 0,
                         "icon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1NraWxsSWNvbnMvUHVyaXR5b2ZGaXJlV2VhcG9uU2tpbGwiLCJyZWFsbSI6InBvZTIifV0/402d027ff8/PurityofFireWeaponSkill.png",
                         "domain": "skill",
-                        "hash": "stat.skill.purity_of_fire"
-                    }
+                        "hash": "stat.skill.purity_of_fire",
+                    },
                 ],
                 "enchantMods": [
                     {
@@ -107,24 +109,24 @@
                                 "magnitudes": [
                                     {
                                         "min": "20",
-                                        "max": "30"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
+                                        "max": "30",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
                 ],
                 "runeMods": [
                     {
                         "description": "15% increased [Spirit|Spirit]",
                         "domain": "rune",
-                        "hash": "stat.rune.stat_3984865854"
+                        "hash": "stat.rune.stat_3984865854",
                     },
                     {
                         "description": "[ShamanOnlyMods|Bonded]: [Minion|Minions] have 30% increased [CooldownRecovery|Cooldown Recovery Rate] for [Command] Skills",
                         "domain": "rune",
-                        "hash": "stat.rune.stat_1611856026"
-                    }
+                        "hash": "stat.rune.stat_1611856026",
+                    },
                 ],
                 "explicitMods": [
                     {
@@ -137,11 +139,11 @@
                                 "magnitudes": [
                                     {
                                         "min": "40",
-                                        "max": "60"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "60",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "[Allies] in your [Presence] Regenerate 2.1% of their Maximum Life per second",
@@ -153,11 +155,11 @@
                                 "magnitudes": [
                                     {
                                         "min": "2",
-                                        "max": "3"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "3",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "[Allies|Allies] in your [Presence|Presence] [Gain|Gain] 21% of Damage as Extra Fire Damage",
@@ -169,11 +171,11 @@
                                 "magnitudes": [
                                     {
                                         "min": "20",
-                                        "max": "30"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "30",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "Enemies in your [Presence|Presence] Resist [ElementalDamage|Elemental Damage] based on their Lowest [Resistances|Resistance]",
@@ -185,16 +187,16 @@
                                 "magnitudes": [
                                     {
                                         "min": "1",
-                                        "max": "1"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
+                                        "max": "1",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
                 ],
                 "flavourText": [
                     "Fire destroys, but fire also purifies.\r",
-                    "Life always springs anew."
+                    "Life always springs anew.",
                 ],
                 "frameType": 3,
                 "frameTypeId": "Unique",
@@ -219,37 +221,37 @@
                                 "name": "Stack Size",
                                 "values": [["1/10", 0]],
                                 "displayMode": 0,
-                                "type": 32
+                                "type": 32,
                             },
                             {
                                 "name": "[Idol]",
                                 "values": [],
-                                "displayMode": 0
+                                "displayMode": 0,
                             },
                             {
                                 "name": "Limited to",
                                 "values": [["1", 0]],
-                                "displayMode": 0
-                            }
+                                "displayMode": 0,
+                            },
                         ],
                         "explicitMods": [
                             {
-                                "description": "Body Armours: 12% increased [ItemRarity|Rarity of Items] found"
+                                "description": "Body Armours: 12% increased [ItemRarity|Rarity of Items] found",
                             },
                             {
-                                "description": "Sceptres: 15% increased [Spirit|Spirit]"
-                            }
+                                "description": "Sceptres: 15% increased [Spirit|Spirit]",
+                            },
                         ],
                         "bondedMods": [
                             "[ShamanOnlyMods|Bonded]:",
                             "Body Armours: 10% increased Quantity of Gold Dropped by Slain Enemies",
-                            "Sceptres: [Minion|Minions] have 30% increased [CooldownRecovery|Cooldown Recovery Rate] for [Command] Skills"
+                            "Sceptres: [Minion|Minions] have 30% increased [CooldownRecovery|Cooldown Recovery Rate] for [Command] Skills",
                         ],
                         "descrText": "Place into an empty [Augment] Socket in a Body Armour or Sceptre to apply its effect to that item. Once socketed it cannot be retrieved but can be replaced by other [Augment] items.",
                         "frameType": 5,
                         "frameTypeId": "Currency",
                         "socket": 0,
-                        "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9Bem1lcmlTb2NrZXRGaWxsZWRTYWNyZWQiLCJyZWFsbSI6InBvZTIifV0/a8f77dcc81/AzmeriSocketFilledSacred.png"
+                        "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9Bem1lcmlTb2NrZXRGaWxsZWRTYWNyZWQiLCJyZWFsbSI6InBvZTIifV0/a8f77dcc81/AzmeriSocketFilledSacred.png",
                     },
                     {
                         "realm": "poe2",
@@ -263,20 +265,20 @@
                         "sockets": [
                             {
                                 "group": 0,
-                                "type": "gem"
+                                "type": "gem",
                             },
                             {
                                 "group": 1,
-                                "type": "gem"
+                                "type": "gem",
                             },
                             {
                                 "group": 2,
-                                "type": "gem"
+                                "type": "gem",
                             },
                             {
                                 "group": 3,
-                                "type": "gem"
-                            }
+                                "type": "gem",
+                            },
                         ],
                         "name": "",
                         "typeLine": "Purity of Fire",
@@ -287,34 +289,34 @@
                             {
                                 "name": "[Buff], [Persistent], [Aura], [Fire]",
                                 "values": [],
-                                "displayMode": 0
+                                "displayMode": 0,
                             },
                             {
                                 "name": "Level",
                                 "values": [["19", 0]],
                                 "displayMode": 0,
-                                "type": 5
-                            }
+                                "type": 5,
+                            },
                         ],
                         "requirements": [
                             {
                                 "name": "Level",
                                 "values": [["84", 0]],
                                 "displayMode": 0,
-                                "type": 62
+                                "type": 62,
                             },
                             {
                                 "name": "[Strength|Str]",
                                 "values": [["45", 0]],
                                 "displayMode": 1,
-                                "type": 63
+                                "type": 63,
                             },
                             {
                                 "name": "[Intelligence|Int]",
                                 "values": [["114", 0]],
                                 "displayMode": 1,
-                                "type": 65
-                            }
+                                "type": 65,
+                            },
                         ],
                         "secDescrText": "Emit an [Aura] that boosts the [Resistances|Fire Resistance] of you and [Allies] in your [Presence].",
                         "gemTabs": [
@@ -323,17 +325,17 @@
                                 "pages": [
                                     {
                                         "stats": ["[Aura] grants +40% to [Fire|Fire] Resistance"],
-                                        "skillName": "Purity of Fire"
-                                    }
-                                ]
-                            }
+                                        "skillName": "Purity of Fire",
+                                    },
+                                ],
+                            },
                         ],
                         "gemSkill": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1NraWxsSWNvbnMvUHVyaXR5b2ZGaXJlV2VhcG9uU2tpbGwiLCJyZWFsbSI6InBvZTIifV0/402d027ff8/PurityofFireWeaponSkill.png",
                         "descrText": "Skills can be managed in the Skills Panel.",
                         "frameType": 4,
                         "frameTypeId": "Gem",
-                        "socketedItems": []
-                    }
+                        "socketedItems": [],
+                    },
                 ],
                 "extended": {
                     "hashes": {
@@ -341,17 +343,17 @@
                             ["explicit.stat_3015669065", [0]],
                             ["explicit.stat_3081479811", [2]],
                             ["explicit.stat_2173791158", [1]],
-                            ["explicit.stat_2786852525", [3]]
+                            ["explicit.stat_2786852525", [3]],
                         ],
                         "enchant": [["enchant.stat_1798257884", [0]]],
                         "rune": [
                             ["rune.stat_3984865854", null],
-                            ["rune.stat_1611856026", null]
+                            ["rune.stat_1611856026", null],
                         ],
-                        "skill": [["skill.purity_of_fire", null]]
-                    }
-                }
-            }
-        }
-    ]
+                        "skill": [["skill.purity_of_fire", null]],
+                    },
+                },
+            },
+        },
+    ],
 }

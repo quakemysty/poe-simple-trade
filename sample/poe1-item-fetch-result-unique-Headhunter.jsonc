@@ -1,0 +1,196 @@
+// https://www.pathofexile.com/api/trade/fetch/33f158cbe3bf99806557a2dd7e6ed71139a2c1602563a0734628bbcf5722a40a
+
+{
+    "result": [
+        {
+            "id": "33f158cbe3bf99806557a2dd7e6ed71139a2c1602563a0734628bbcf5722a40a",
+            "listing": {
+                "method": "psapi",
+                "indexed": "2026-09-17T13:53:09Z",
+                "stash": {
+                    "name": "4",
+                    "x": 8,
+                    "y": 7,
+                },
+                "price": {
+                    "type": "~b/o",
+                    "amount": 30,
+                    "currency": "divine",
+                },
+                "fee": 42520,
+                "account": {
+                    "name": "aaaaa",
+                    "online": null,
+                    "lastCharacterName": "aaaaa",
+                    "language": "en_US",
+                    "realm": "pc",
+                },
+                "whisper": "@aaaaa Hi, I would like to buy your Foulborn Mageblood Heavy Belt listed for 30 divine in Allflame (stash tab \"4\"; position: left 9, top 8)",
+            },
+            "item": {
+                "verified": true,
+                "w": 2,
+                "h": 1,
+                "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvSW5qZWN0b3JCZWx0IiwidyI6MiwiaCI6MSwic2NhbGUiOjEsIm11dGF0ZWQiOnRydWV9XQ/8f193a2016/InjectorBelt.png",
+                "league": "Allflame",
+                "id": "33f158cbe3bf99806557a2dd7e6ed71139a2c1602563a0734628bbcf5722a40a",
+                "mutated": true,
+                "name": "Foulborn Mageblood",
+                "typeLine": "Heavy Belt",
+                "baseType": "Heavy Belt",
+                "rarity": "Unique",
+                "ilvl": 80,
+                "identified": true,
+                "note": "~b/o 30 divine",
+                "corrupted": true,
+                "properties": [
+                    {
+                        "name": "[Intangibility|Intangibility]",
+                        "values": [["13%", 0]],
+                        "displayMode": 0,
+                        "type": 110,
+                    },
+                ],
+                "requirements": [
+                    {
+                        "name": "Level",
+                        "values": [["44", 0]],
+                        "displayMode": 0,
+                        "type": 62,
+                    },
+                ],
+                "implicitMods": [
+                    {
+                        "description": "+30 to Strength",
+                        "domain": "implicit",
+                        "hash": "stat.implicit.stat_4080418644",
+                        "mods": [
+                            {
+                                "level": 10,
+                                "magnitudes": [
+                                    {
+                                        "min": "25",
+                                        "max": "35",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+                "explicitMods": [
+                    {
+                        "description": "+44 to Dexterity",
+                        "domain": "explicit",
+                        "hash": "stat.explicit.stat_3261801346",
+                        "mods": [
+                            {
+                                "magnitudes": [
+                                    {
+                                        "min": "30",
+                                        "max": "50",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        "description": "+15% to Fire Resistance",
+                        "domain": "explicit",
+                        "hash": "stat.explicit.stat_3372524247",
+                        "mods": [
+                            {
+                                "magnitudes": [
+                                    {
+                                        "min": "15",
+                                        "max": "25",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        "description": "+25% to Cold Resistance",
+                        "domain": "explicit",
+                        "hash": "stat.explicit.stat_4220027924",
+                        "mods": [
+                            {
+                                "magnitudes": [
+                                    {
+                                        "min": "15",
+                                        "max": "25",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        "description": "Magic Utility Flasks cannot be Used",
+                        "domain": "explicit",
+                        "hash": "stat.explicit.stat_3986704288",
+                        "mods": [
+                            {
+                                "magnitudes": [
+                                    {
+                                        "min": "1",
+                                        "max": "1",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        "description": "Magic Utility Flask Effects cannot be removed",
+                        "domain": "explicit",
+                        "hash": "stat.explicit.stat_344389721",
+                        "mods": [
+                            {
+                                "magnitudes": [
+                                    {
+                                        "min": "1",
+                                        "max": "1",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        "description": "Rightmost 2 Magic Utility Flasks constantly apply their Flask Effects to you",
+                        "flags": {
+                            "mutated": true,
+                        },
+                        "domain": "explicit",
+                        "hash": "stat.explicit.stat_2651470813",
+                        "mods": [
+                            {
+                                "level": 56,
+                                "magnitudes": [
+                                    {
+                                        "min": "2",
+                                        "max": "4",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+                "flavourText": ["Rivers of power course through your veins."],
+                "frameType": 3,
+                "frameTypeId": "Unique",
+                "extended": {
+                    "hashes": {
+                        "explicit": [
+                            ["explicit.stat_3261801346", [0]],
+                            ["explicit.stat_3372524247", [1]],
+                            ["explicit.stat_4220027924", [2]],
+                            ["explicit.stat_3986704288", [3]],
+                            ["explicit.stat_344389721", [5]],
+                            ["explicit.stat_2651470813", [4]],
+                        ],
+                        "implicit": [["implicit.stat_4080418644", [0]]],
+                    },
+                    "text": "SXRlbSBDbGFzczogQmVsdHMNClJhcml0eTogVW5pcXVlDQpGb3VsYm9ybiBNYWdlYmxvb2QNCkhlYXZ5IEJlbHQNCi0tLS0tLS0tDQpbSW50YW5naWJpbGl0eXxJbnRhbmdpYmlsaXR5XTogMTMlDQotLS0tLS0tLQ0KUmVxdWlyZW1lbnRzOg0KTGV2ZWw6IDQ0DQotLS0tLS0tLQ0KSXRlbSBMZXZlbDogODANCi0tLS0tLS0tDQorMzAgdG8gU3RyZW5ndGgNCi0tLS0tLS0tDQorNDQgdG8gRGV4dGVyaXR5DQorMTUlIHRvIEZpcmUgUmVzaXN0YW5jZQ0KKzI1JSB0byBDb2xkIFJlc2lzdGFuY2UNCk1hZ2ljIFV0aWxpdHkgRmxhc2tzIGNhbm5vdCBiZSBVc2VkDQpNYWdpYyBVdGlsaXR5IEZsYXNrIEVmZmVjdHMgY2Fubm90IGJlIHJlbW92ZWQNClJpZ2h0bW9zdCAyIE1hZ2ljIFV0aWxpdHkgRmxhc2tzIGNvbnN0YW50bHkgYXBwbHkgdGhlaXIgRmxhc2sgRWZmZWN0cyB0byB5b3UNCi0tLS0tLS0tDQpSaXZlcnMgb2YgcG93ZXIgY291cnNlIHRocm91Z2ggeW91ciB2ZWlucy4NCi0tLS0tLS0tDQpDb3JydXB0ZWQNCi0tLS0tLS0tDQpOb3RlOiB+Yi9vIDMwIGRpdmluZQ0K",
+                },
+            },
+        },
+    ],
+}

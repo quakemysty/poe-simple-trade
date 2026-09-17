@@ -1,3 +1,5 @@
+// https://www.pathofexile.com/api/trade2/fetch/06225a7a402bfaa69cacc98fdd98eeb30819c42d2e3b3821dd9f2d547c8de37d
+
 {
     "result": [
         {
@@ -8,23 +10,23 @@
                 "stash": {
                     "name": "~price 2 divine gems",
                     "x": 162,
-                    "y": 1
+                    "y": 1,
                 },
                 "price": {
                     "type": "~price",
                     "amount": 200,
-                    "currency": "divine"
+                    "currency": "divine",
                 },
                 "account": {
                     "name": "aaaaaaa",
                     "online": {
-                        "league": "Runes of Aldur"
+                        "league": "Runes of Aldur",
                     },
                     "lastCharacterName": "aaaaaaa",
                     "language": "en_US",
-                    "realm": "poe2"
+                    "realm": "poe2",
                 },
-                "whisper": "@LeanBeanCuisine Hi, I would like to buy your level 1 0% Rakiata's Flow listed for 200 divine in Runes of Aldur (stash tab \"~price 2 divine gems\"; position: left 163, top 2)"
+                "whisper": "@LeanBeanCuisine Hi, I would like to buy your level 1 0% Rakiata's Flow listed for 200 divine in Runes of Aldur (stash tab \"~price 2 divine gems\"; position: left 163, top 2)",
             },
             "item": {
                 "realm": "poe2",
@@ -45,34 +47,34 @@
                     {
                         "name": "[SupportGem|Support], [LineageSupports|Lineage]",
                         "values": [],
-                        "displayMode": 0
+                        "displayMode": 0,
                     },
                     {
                         "name": "[SupportGemCategory|Category]",
                         "values": [["Rakiata's Flow", 0]],
-                        "displayMode": 0
+                        "displayMode": 0,
                     },
                     {
                         "name": "Cost Multiplier",
                         "values": [["120%", 0]],
-                        "displayMode": 0
-                    }
+                        "displayMode": 0,
+                    },
                 ],
                 "requirements": [
                     {
                         "name": "Level",
                         "values": [["65", 0]],
                         "displayMode": 0,
-                        "type": 62
-                    }
+                        "type": 62,
+                    },
                 ],
                 "supportGemRequirements": [
                     {
                         "name": "+5 [Dexterity|Dex]",
                         "values": [["(5)", 0]],
                         "displayMode": 0,
-                        "type": 64
-                    }
+                        "type": 64,
+                    },
                 ],
                 "secDescrText": "Supports Skills that can cause [Hit|Damaging Hits], causing those [Hit|Hits] to treat Enemy [Resistances|Elemental Resistances] as inverted.",
                 "gemTabs": [
@@ -81,23 +83,23 @@
                         "pages": [
                             {
                                 "stats": [
-                                    "[Hit|Hits] with Supported Skills treat Enemy Monster [ElementalDamage|Elemental] [Resistances|Resistance] values as inverted"
+                                    "[Hit|Hits] with Supported Skills treat Enemy Monster [ElementalDamage|Elemental] [Resistances|Resistance] values as inverted",
                                 ],
-                                "skillName": ""
-                            }
-                        ]
-                    }
+                                "skillName": "",
+                            },
+                        ],
+                    },
                 ],
                 "descrText": "Place into a Skill's Support Gem socket in the Skills Panel to apply its effects to that Skill. You cannot have multiple Support Gems of the same Category socketed within one Skill.",
                 "flavourText": [
                     "The Tasalio Tribe developed their own Way, seeing\r",
                     "the world not as it is, but as it should be, given its\r",
-                    "roiling and endless grace of constant motion."
+                    "roiling and endless grace of constant motion.",
                 ],
                 "frameType": 4,
                 "frameTypeId": "Gem",
-                "extended": []
-            }
-        }
-    ]
+                "extended": [],
+            },
+        },
+    ],
 }

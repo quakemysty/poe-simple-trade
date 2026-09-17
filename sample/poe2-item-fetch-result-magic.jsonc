@@ -1,3 +1,5 @@
+// https://www.pathofexile.com/api/trade2/fetch/b741299e4ceffe3241ea4a3f9a3aac9ffa66f1f69930f0c16d16a4d7adb7ce6c
+
 {
     "result": [
         {
@@ -8,18 +10,18 @@
                 "stash": {
                     "name": "7",
                     "x": 7,
-                    "y": 2
+                    "y": 2,
                 },
                 "price": {
                     "type": "~b/o",
                     "amount": 1,
-                    "currency": "regal"
+                    "currency": "regal",
                 },
                 "fee": 9585,
                 "account": {
                     "name": "EBR Ej0ta#8417",
-                    "online": null
-                }
+                    "online": null,
+                },
             },
             "item": {
                 "realm": "poe2",
@@ -41,40 +43,40 @@
                         "name": "[Bow]",
                         "values": [],
                         "displayMode": 0,
-                        "type": 109
+                        "type": 109,
                     },
                     {
                         "name": "[Physical] Damage",
                         "values": [["56-84", 0]],
                         "displayMode": 0,
-                        "type": 9
+                        "type": 9,
                     },
                     {
                         "name": "[Critical|Critical Hit] Chance",
                         "values": [["5.00%", 0]],
                         "displayMode": 0,
-                        "type": 12
+                        "type": 12,
                     },
                     {
                         "name": "Attacks per Second",
                         "values": [["1.20", 0]],
                         "displayMode": 0,
-                        "type": 13
-                    }
+                        "type": 13,
+                    },
                 ],
                 "requirements": [
                     {
                         "name": "Level",
                         "values": [["77", 0]],
                         "displayMode": 0,
-                        "type": 62
+                        "type": 62,
                     },
                     {
                         "name": "[Dexterity|Dex]",
                         "values": [["163", 0]],
                         "displayMode": 1,
-                        "type": 64
-                    }
+                        "type": 64,
+                    },
                 ],
                 "explicitMods": [
                     {
@@ -89,11 +91,11 @@
                                 "magnitudes": [
                                     {
                                         "min": "41",
-                                        "max": "60"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "60",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "77% increased [ElementalDamage|Elemental] Damage with [Attack|Attacks]",
@@ -107,11 +109,11 @@
                                 "magnitudes": [
                                     {
                                         "min": "73",
-                                        "max": "86"
-                                    }
-                                ]
-                            }
-                        ]
+                                        "max": "86",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         "description": "15% increased [LightRadius|Light Radius]",
@@ -125,12 +127,12 @@
                                 "magnitudes": [
                                     {
                                         "min": "15",
-                                        "max": "15"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
+                                        "max": "15",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
                 ],
                 "frameType": 1,
                 "frameTypeId": "Magic",
@@ -144,11 +146,11 @@
                         "explicit": [
                             ["explicit.stat_691932474", [1]],
                             ["explicit.stat_387439868", [0]],
-                            ["explicit.stat_1263695895", [1]]
-                        ]
-                    }
-                }
-            }
-        }
-    ]
+                            ["explicit.stat_1263695895", [1]],
+                        ],
+                    },
+                },
+            },
+        },
+    ],
 }
